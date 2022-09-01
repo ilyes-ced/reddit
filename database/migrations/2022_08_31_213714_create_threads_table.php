@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('views');
             $table->integer('heat');
             $table->json('comments');
-
             $table->timestamps();
         });
     }

@@ -1,27 +1,49 @@
-<div class='flex flex-row dark:bg-secondary '>
-    <div class='bg-secondary w-8 '>
-        <div class=' p-2 h-full bg-main'>
-            t
-        </div>
-    </div>
+<a href="#">
+    <div class='flex flex-row dark:bg-secondary '>
 
-    <div class='w-full divide-y divide-icons'>
-        <div class='p-2'>
-            additional information
-        </div>
-    
-        <div>
-            <div class='p-2'>
-                sub  user 
-                <p class='text-[25px]'>title</p>
+        <div class='bg-secondary w-10 h-full items-center '>
+            <div class=' h-full  bg-main p-2'>
+                <x-bi-arrow-up class='w-5 h-5 hover:text-the_red' />
+                3.2k
+                <x-bi-arrow-down class='w-5 h-5 hover:text-the_red'/>
             </div>
-            <img src="../../images/pic1.jpg" alt="My logo" />
         </div>
 
+        <div class='w-full divide-y divide-icons'>
+            <div class='p-2'>
+                additional information
+            </div>
+        
+            <div>
+                <div class='p-2 flex  flex-row'>
+                    <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
+                    <a href='#' class = 'pl-2 mt-1 font-bold text-white hover:underline'>sub here</a>           
+                    <p class='mt-1 text-gray-400 pl-1'>. posted by </p>
+                    <a href='#' class='text-gray-400 mt-1 pl-1 hover:underline'>this_user</a>
+                    <p class='text-gray-400 mt-1 pl-1'> 3h ago</p>
+                </div>
+                <p class='text-[25px] pl-2 pb-2'>title</p>
+                <a href="#">
+                    <img src="../../images/pic1.jpg" alt="My logo"/>
+                </a>
+            </div>
 
-        <div class='p-2'>
-            icons here
+
+            <div class=' flex flex-row w-full h-full'>
+                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                    <x-bi-chat-square-text class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
+                    comment
+                </a>
+                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                    <x-bi-share class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
+                    share
+                </a>
+                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                    <x-bi-bookmark  class='w-5 h-5 hover:text-the_red mt-1 mr-2'/>
+                    bookmark 
+                </a>
+            </div>
         </div>
+
     </div>
-
-</div>
+</a>
