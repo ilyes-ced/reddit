@@ -12,6 +12,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     <body class='dark:bg-main dark:text-text_color'>
         <!-- nav bar -->
@@ -20,5 +21,6 @@
         <div class="font-sans  antialiased">
             {{ $slot }}
         </div>
+        @livewireScripts
     </body>
 </html>
