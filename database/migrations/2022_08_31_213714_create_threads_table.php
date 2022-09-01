@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('heat');
             $table->json('comments');
             $table->json('images');
+            $table->integer('sub');
             $table->timestamps();
         });
     }

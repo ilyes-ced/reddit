@@ -14,3 +14,6 @@ use App\Http\Controllers\pages_controller;
 */
 
 Route::get('/', [pages_controller::class, 'home_page']);
+Route::get('/sub/{id}', [pages_controller::class, 'sub_page']);
+Route::get('/thread/{id}', [pages_controller::class, 'thread_page']);
+Route::get('/user/{id}', [pages_controller::class, 'user_page']);

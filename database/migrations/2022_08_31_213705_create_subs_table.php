@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('subs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('number_of_members');
-            $table->integer('name');
+            $table->string('name');
             $table->json('threads');
+            $table->json('images');
             $table->timestamps();
         });
     }

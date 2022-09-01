@@ -1,5 +1,5 @@
 
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5  dark:bg-main">
+<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5  dark:bg-main border-b">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="https://flowbite.com/" class="flex items-center">
       <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
