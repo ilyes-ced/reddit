@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->json('content');
+            $table->string('content');
             $table->string('owner_id');
             $table->integer('views');
             $table->integer('heat');
             $table->json('comments');
+            $table->json('images');
             $table->timestamps();
         });
     }
