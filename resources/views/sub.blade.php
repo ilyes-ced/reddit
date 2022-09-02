@@ -1,5 +1,5 @@
 <x-layouts.app>
-
+{{--
     <div>
         <div class='h-60 w-full bg-red-600'>
             <img class='h-60 w-full' src="../../images/pic5.jpg" alt="">
@@ -11,8 +11,10 @@
             <button class='text-[25px] rounded-full bg-the_red w-20 h-10 mt-5 mx-10'>join</button>
         </div>
     </div>
+--}}
 
 
+subpage
    
     
 

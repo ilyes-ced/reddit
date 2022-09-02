@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('threads', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('content');
-            $table->string('owner_id');
-            $table->integer('views');
+            $table->integer('owner_id');
+            $table->integer('post_id');
+            $table->integer('parent_comment_id');
+            $table->integer('level');
             $table->integer('heat');
-            $table->json('comments');
-            $table->json('images');
-            $table->integer('sub');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('threads');
+        Schema::dropIfExists('comments');
     }
 };

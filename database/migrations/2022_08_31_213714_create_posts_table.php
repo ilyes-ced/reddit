@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subs', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('owner_id');
-            $table->string('name');
-            $table->string('description');
-            $table->integer('number_of_members');
-            $table->json('images');
+            $table->integer('sub_id');
+            $table->json('content');
+            $table->integer('views');
+            $table->integer('heat');
+            //$table->json('comments_ids');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subs');
+        Schema::dropIfExists('psots');
     }
 };

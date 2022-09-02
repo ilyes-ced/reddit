@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sub extends Model
+class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number_of_members','name','threads'];
     
+    protected $table = 'Posts';
 
 
 
@@ -19,8 +19,12 @@ class Sub extends Model
     {
         return $this->belongsTo(User::class,"owner_id");
     }
-    public function post()
+    public function sub()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Sub::class,"sub_id");
+    }
+    public function comment()
+    {
+        return $this->hasMany(Comment::class,"post_id");
     }
 }

@@ -19,12 +19,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('heat');
-            $table->json('subs');
-            $table->json('liked_posts');
-            $table->json('comments');
-            $table->json('my_posts');
-            $table->json('my_subs');
+
+            $table->integer('heat')->default(0);
+            $table->json('joined_subs')->default('[]');
+            $table->json('liked_posts')->default('[]');
+            $table->json('comments')->default('[]');
+            $table->json('my_posts')->default('[]');
+            $table->json('my_subs')->default('[]');
+            
+            $table->json('up_votes')->default('[]');
+            $table->json('down_votes')->default('[]');
+
             $table->rememberToken();
             $table->timestamps();
         });
