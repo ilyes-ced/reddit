@@ -1,9 +1,12 @@
-@foreach ($data as $item)
+{{$modal_bool ? 'true' : 'false'}}
+@foreach ($post as $item)
 <div wire:click='open_modal'>
+    
     <x-item :item='$item' :subs_data='$subs_data' :user_data='$user_data'/>
+    
 </div>
 @endforeach
-{{ $data->links() }}
+{{ $post->links() }}
 
 
 

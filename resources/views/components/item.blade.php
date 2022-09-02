@@ -8,9 +8,9 @@
     
                         <div class='bg-main   items-center w-10 text-center '>
                             <div class=' h-100 w-10 bg-main pt-2'>
-                                <x-bi-arrow-up class='w-5 h-5 hover:text-the_red mx-auto' />
+                                <x-bi-arrow-up wire:click="up_vote({{$item->id}})" class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
                                 {{$item->heat}}
-                                <x-bi-arrow-down class='w-5 h-5 hover:text-the_red mx-auto'/>
+                                <x-bi-arrow-down wire:click="down_vote({{$item->id}})" class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
                             </div>
                         </div>
                     
