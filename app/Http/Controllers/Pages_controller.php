@@ -11,22 +11,19 @@ use App\Models\User;
 class Pages_controller extends Controller
 {
     public function home_page()
-    {   /*    
+    {   
         $data = array();
-        $count = Post::count();
-        for ($i = 1; $i <= $count; $i++) {
-            $post = Post::find($i);
-            array_push($data,$post);
-            if(!isset($sub_data[$post->sub_id])){
-                $sub_data[$post->sub_id] = Sub::where('id',$post->sub_id)->first();
+        $post = Post::paginate(10);
+        $count =  count($post);
+        for ($i = 1; $i <= $count-1; $i++) {
+            if(!isset($sub_data[$post[$i]->sub_id])){
+                $sub_data[$post[$i]->sub_id] = Sub::where('id',$post[$i]->sub_id)->first();
             }
-            if(!isset($user_data[$post->owner_id])){
-                $user_data[$post->owner_id] = User::where('id',$post->sub_id)->first();;
+            if(!isset($user_data[$post[$i]->owner_id])){
+                $user_data[$post[$i]->owner_id] = User::where('id',$post[$i]->sub_id)->first();;
             }
         }
-        */
-        //return view('home_page')->with('data',$data)->with('subs_data',$sub_data)->with('user_data',$user_data);
-        return view('home_page');
+        return view('home_page')->with('post',$post)->with('subs_data',$sub_data)->with('user_data',$user_data);
     }
 
 
