@@ -28,10 +28,10 @@
                                     <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user_data[$item->owner_id]->username}}</a>
                                     <p class='text-gray-400 mt-1 pl-1'> 3h ago</p>
                                 </div>
-                                <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)[0]}}</p>
+                                <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
                                 <a href="#">
                                     {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
-                                    <img src="../../images/pic1.jpg" alt="My logo"/>
+                                    <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
                                 </a>
                             </div>
                         

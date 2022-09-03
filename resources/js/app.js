@@ -21,7 +21,7 @@ $( "#down_vote, #up_vote" ).on("click", function() {
             id: $(this).parent().attr('id'),
          },
         success: function(result){
-            alert(result.msg)
+            alert(result)
         }
       })
     

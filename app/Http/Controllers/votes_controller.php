@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use DB;
 
 
-class Pages_controller extends Controller
+class Votes_controller extends Controller
 {
-    public function up_vote(Request $request)
+    public function index(Request $request)
     {   
         if($request->type == 'up_vote'){
             DB::Table('posts')->whereid($request->id)->Increment('heat');
@@ -17,6 +17,6 @@ class Pages_controller extends Controller
         }else{
             
         }
-        return response()->json(['it works'=>'som dataaa']);
+        return response()->json($request->type);
     }
 }
