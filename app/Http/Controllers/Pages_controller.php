@@ -37,16 +37,16 @@ class Pages_controller extends Controller
     public function post_page($id)
     {
         $data = Post::find($id);
-        $comments = Comment::where('parent_comment_id',0)->get();
-        $sub_comments1 = Comment::where('parent_comment_id', 1)->get();
-        $sub_comments2 = Comment::where('parent_comment_id', 2)->get();
-        $sub_comments3 = Comment::where('parent_comment_id', 3)->get();
-        $sub_comments4 = Comment::where('parent_comment_id', 4)->get();
-        $sub_comments5 = Comment::where('parent_comment_id', 5)->get();
-        $sub_comments6 = Comment::where('parent_comment_id', 6)->get();
-        $sub_comments7 = Comment::where('parent_comment_id', 7)->get();
-        $sub_comments8 = Comment::where('parent_comment_id', 8)->get();
-        $sub_comments9 = Comment::where('parent_comment_id', 9)->get();
+        $comments = Comment::where('parent_comment_id',0)->where('post_id',$id)->get();
+        $sub_comments1 = Comment::where('parent_comment_id', 1)->where('post_id',$id)->get();
+        $sub_comments2 = Comment::where('parent_comment_id', 2)->where('post_id',$id)->get();
+        $sub_comments3 = Comment::where('parent_comment_id', 3)->where('post_id',$id)->get();
+        $sub_comments4 = Comment::where('parent_comment_id', 4)->where('post_id',$id)->get();
+        $sub_comments5 = Comment::where('parent_comment_id', 5)->where('post_id',$id)->get();
+        $sub_comments6 = Comment::where('parent_comment_id', 6)->where('post_id',$id)->get();
+        $sub_comments7 = Comment::where('parent_comment_id', 7)->where('post_id',$id)->get();
+        $sub_comments8 = Comment::where('parent_comment_id', 8)->where('post_id',$id)->get();
+        $sub_comments9 = Comment::where('parent_comment_id', 9)->where('post_id',$id)->get();
 
       /* $json =  json_encode(['title'=>'this is big title help me please',
         'body'=>'body text long here',

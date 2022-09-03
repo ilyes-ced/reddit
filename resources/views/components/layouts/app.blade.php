@@ -21,6 +21,8 @@
         <div class="font-sans  antialiased">
             {{ $slot }}
         </div>
+        <x-layouts.footer />
+
         @livewireScripts
     </body>
 </html>
