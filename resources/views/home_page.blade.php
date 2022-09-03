@@ -1,11 +1,7 @@
 <x-layouts.app>
     
 @foreach ($post as $item)
-<div wire:click='open_modal'>
-    
-    <x-item :item='$item' :subs_data='$subs_data' :user_data='$user_data'/>
-    
-</div>
+    <x-item  :item='$item' :subs_data='$subs_data' :user_data='$user_data'/>
 @endforeach
 {{ $post->links() }}
 

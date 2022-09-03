@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('content');
             $table->integer('owner_id');
             $table->integer('post_id');
             $table->integer('parent_comment_id');

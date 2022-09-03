@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Sub;
 use App\Models\User;
+use App\Models\Comment;
 
 
 class Pages_controller extends Controller
@@ -33,9 +34,13 @@ class Pages_controller extends Controller
     }
 
 
-    public function thread_page($id)
+    public function post_page($id)
     {
-        return view('thread');
+        $data = Post::find($id);
+        $comments = Comment::where('parent_comment_id',0)->get();
+        $sub_comments = Comment::where('parent_comment_id', '!=', 0)->get();
+      
+        return view('post')->with('data',$data)->with('comments',$comments)->with('sub_comments',$sub_comments);
     }
 
     

@@ -12,25 +12,24 @@ document.querySelector(".thread_div").addEventListener("click", () => {
 
 
 $( "#down_vote, #up_vote" ).on("click", function() {
-    //alert($(this).css('color'))
-    alert("/vote/"+$(this).attr('id'))
-
-
-
-    /*
-    $.ajax({url: "/vote/"+$(this).attr('id'), success: function(result){
-        $("#div1").html(result);
-    }});
-    */
-
     $.ajax({
-        url : "/vote/"+$(this).attr('id'),
-        context: document.body
-      }).done(function() {
-        $( this ).addClass( "done" );
-    });
-    
+        url : "/vote",
+        method: 'post',
+        data: {
+            _token:$('meta[name="csrf-token"]').attr('content'),
+            type: $(this).attr('id'),
+            id: $(this).parent().attr('id'),
+         },
+        success: function(result){
+            alert(result.msg)
+        }
+      })
     
     $('#heat_score').val($('#heat_score').text()+1)
   });
 
+
+$( ".post_clickable" ).on("click", function() {
+    window.location.href = "/post/"+$(this).attr('id');
+})
+  

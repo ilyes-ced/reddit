@@ -8,14 +8,15 @@ use DB;
 
 class Pages_controller extends Controller
 {
-    public function up_vote($id)
+    public function up_vote(Request $request)
     {   
-        DB::Table('posts')->whereid($id)->Increment('heat');
-
-    }
-
-    public function down_vote($id)
-    {
-        DB::Table('posts')->whereid($id)->decrement('heat');
+        if($request->type == 'up_vote'){
+            DB::Table('posts')->whereid($request->id)->Increment('heat');
+        }elseif($request->type == 'down_vote'){
+            DB::Table('posts')->whereid($request->id)->decrement('heat');
+        }else{
+            
+        }
+        return response()->json(['it works'=>'som dataaa']);
     }
 }
