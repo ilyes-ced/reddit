@@ -27,7 +27,7 @@
    
     
    </div>
-   <div class='px-10 py-2 flex flex-row w-full h-full'>
+   <div class='px-10 py-2 flex flex-row w-full '>
     <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
         <x-bi-chat-square-text class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
         comment
@@ -52,29 +52,21 @@
             <p class='text-[25px] text-center'>no comments yet</p>
         @endif
         @foreach ($comments as $item)
-            <x-comment :item='$item' />   
-            @foreach ($sub_comments1 as $item)
-                @if ($item->parent_comment_id==1)
+            <x-comment :item='$item' />  
+            @php ($var = $item->id)
+            {{$sub_comments}}
+            @foreach ($sub_comments as $item)
                 <div  class='flex flex_row divide-x ml-3'>
                     <div class=''></div>
-                    <div class='ml-4'>
+                    <div class='ml-4 w-full'>
                         <x-comment :item='$item' /> 
-                        @foreach ($sub_comments2 as $item)
-                        @if ($item->parent_comment_id==2)
-                        <div  class='flex flex_row divide-x'>
-                            <div class=''></div>
-                            <div class='ml-4'>
-                                <x-comment :item='$item' /> 
-                            </div>
-                        </div>
-                        @endif
-                    @endforeach
                     </div>
                 </div>
-                @endif
             @endforeach
+
         @endforeach
     </div>
 </div>
     
 </x-layouts.app>
+

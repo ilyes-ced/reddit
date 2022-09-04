@@ -38,31 +38,10 @@ class Pages_controller extends Controller
     {
         $data = Post::find($id);
         $comments = Comment::where('parent_comment_id',0)->where('post_id',$id)->get();
-        $sub_comments1 = Comment::where('parent_comment_id', 1)->where('post_id',$id)->get();
-        $sub_comments2 = Comment::where('parent_comment_id', 2)->where('post_id',$id)->get();
-        $sub_comments3 = Comment::where('parent_comment_id', 3)->where('post_id',$id)->get();
-        $sub_comments4 = Comment::where('parent_comment_id', 4)->where('post_id',$id)->get();
-        $sub_comments5 = Comment::where('parent_comment_id', 5)->where('post_id',$id)->get();
-        $sub_comments6 = Comment::where('parent_comment_id', 6)->where('post_id',$id)->get();
-        $sub_comments7 = Comment::where('parent_comment_id', 7)->where('post_id',$id)->get();
-        $sub_comments8 = Comment::where('parent_comment_id', 8)->where('post_id',$id)->get();
-        $sub_comments9 = Comment::where('parent_comment_id', 9)->where('post_id',$id)->get();
+        $sub_comments = Comment::where('parent_comment_id', '!=', 0)->where('post_id',$id)->get();
 
-      /* $json =  json_encode(['title'=>'this is big title help me please',
-        'body'=>'body text long here',
-        'images'=>['pic1.jpg','pic2.jpg','pic3.jpg']]);*/
-        
-       
         return view('post')->with('data',$data)->with('comments',$comments)
-        ->with('sub_comments1',$sub_comments1)
-        ->with('sub_comments2',$sub_comments2)
-        ->with('sub_comments3',$sub_comments3)
-        ->with('sub_comments4',$sub_comments4)
-        ->with('sub_comments5',$sub_comments5)
-        ->with('sub_comments6',$sub_comments6)
-        ->with('sub_comments7',$sub_comments7)
-        ->with('sub_comments8',$sub_comments8)
-        ->with('sub_comments9',$sub_comments9);
+        ->with('sub_comments',$sub_comments);
     }
 
     
