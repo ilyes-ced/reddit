@@ -1,8 +1,8 @@
 @props(['item','subs_data','user_data'])
 
-    <div class="py-4  cursor-pointer post_clickable" id='{{$item->id}}' >
+    <div class="py-4  cursor-pointer "  >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg border  border-icon">
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg border  border-icon">
                 <div class="">
                     <div class='flex flex-row dark:bg-secondary ' >
     
@@ -14,7 +14,7 @@
                             </div>
                         </div>
                     
-                        <div class='divide-y divide-icons'>
+                        <div class='divide-y divide-icons post_clickable' id='{{$item->id}}'>
                             <div class='p-2'>
                                 additional information
     

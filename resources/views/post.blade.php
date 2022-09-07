@@ -1,11 +1,11 @@
 
 <x-layouts.app>
 
-<div class="m-8 bg-secondary">
+<div class="mx-8 mt-4 bg-secondary rounded-lg  border  border-icon">
    <div class=' flex flex-row'> 
 
     <div class=''>
-        <div id='{{$data->heat}}' class=' h-100 w-10  pt- text-center'>
+        <div id='{{$data->heat}}' class=' h-100 w-10  pt-2 text-center'>
             <x-bi-arrow-up id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
             <p id='heat_score'>{{$data->heat}}</p> 
             <x-bi-arrow-down id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
@@ -13,7 +13,7 @@
     </div>
 
     <div class=''>
-        <div class='flex flex-row'>
+        <div class='flex flex-row pt-2'>
             <p class='text-gray-600'>posted by &nbsp; </p>
             <p class='text-text_color'> username </p>
             <p class='text-gray-600'>&nbsp;  3h ago</p>
@@ -38,14 +38,14 @@
     </a>
     </div>
 </div>
-<div class='m-8 p-2 bg-secondary border'>
+<div class='m-8 p-2 bg-secondary rounded-lg  border  border-icon'>
     <textarea class='w-full' name="" id="" ></textarea>
     <div>
         icons bar
     </div>
 </div>
    
-<div class="m-8 p-4  bg-secondary">
+<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>
         
         @if (count($comments)==0)

@@ -10,7 +10,7 @@ document.querySelector(".thread_div").addEventListener("click", () => {
 });
 */
 
-
+//inrement or decrement a posts score
 $( "#down_vote, #up_vote" ).on("click", function() {
     $.ajax({
         url : "/vote",
@@ -28,7 +28,8 @@ $( "#down_vote, #up_vote" ).on("click", function() {
     $('#heat_score').val($('#heat_score').text()+1)
   });
 
-
+  
+//open a post
 $( ".post_clickable" ).on("click", function() {
     window.location.href = "/post/"+$(this).attr('id');
 })
