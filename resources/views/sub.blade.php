@@ -13,8 +13,10 @@
             <button class='text-[25px] rounded-full bg-the_red w-20 h-10 mt-5 mx-10'>join</button>
         </div>
     </div>
-
-
+    
+    @foreach ($posts as $item)
+    <x-item  :item='$item' :subs_data='$subs_data' :user_data='$user_data'/>
+    @endforeach
 </x-layouts.app>
 
 

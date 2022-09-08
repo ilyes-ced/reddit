@@ -30,7 +30,18 @@ class Pages_controller extends Controller
 
     public function sub_page($id)
     {
-        return view('sub');
+        $data = Sub::find($id);
+        $post = $data->post;
+        $count =  count($post);
+        for ($i = 1; $i <= $count-1; $i++) {
+            if(!isset($sub_data[$post[$i]->sub_id])){
+                $sub_data[$post[$i]->sub_id] = Sub::where('id',$post[$i]->sub_id)->first();
+            }
+            if(!isset($user_data[$post[$i]->owner_id])){
+                $user_data[$post[$i]->owner_id] = User::where('id',$post[$i]->sub_id)->first();;
+            }
+        }
+        return view('sub')->with('data',$data)->with('posts',$post)->with('subs_data',$sub_data)->with('user_data',$user_data);
     }
 
 
