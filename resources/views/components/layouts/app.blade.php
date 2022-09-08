@@ -22,7 +22,7 @@
             {{ $slot }}
         </div>
         <x-layouts.footer />
-
+        <livewire:registration />
         @livewireScripts
     </body>
 </html>

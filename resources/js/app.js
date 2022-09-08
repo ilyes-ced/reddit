@@ -34,3 +34,18 @@ $( ".post_clickable" ).on("click", function() {
     window.location.href = "/post/"+$(this).attr('id');
 })
   
+
+
+$( "#register" ).on("click", function() {
+    $('#registration_modal').removeClass('hidden')
+})
+$( "#registration_modal" ).on("click", function() {
+    $('#registration_modal').addClass('hidden')
+})
+
+$( "#login" ).on("click", function() {
+    $('#login_modal').removeClass('hidden')
+})
+$( "#login" ).on("click", function() {
+    $('#login_modal').addClass('hidden')
+})

@@ -6,9 +6,9 @@
 
     <div class=''>
         <div id='{{$data->heat}}' class=' h-100 w-10  pt-2 text-center'>
-            <x-bi-arrow-up id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
+            <x-bi-caret-up id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
             <p id='heat_score'>{{$data->heat}}</p> 
-            <x-bi-arrow-down id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
+            <x-bi-caret-down id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
         </div>
     </div>
 
