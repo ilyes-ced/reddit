@@ -46,6 +46,6 @@ $( "#registration_modal" ).on("click", function() {
 $( "#login" ).on("click", function() {
     $('#login_modal').removeClass('hidden')
 })
-$( "#login" ).on("click", function() {
+$( "#login_modal" ).on("click", function() {
     $('#login_modal').addClass('hidden')
 })

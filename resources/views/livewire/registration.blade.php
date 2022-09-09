@@ -3,7 +3,7 @@
       <div class="bg-red-200 w-10/12 relative p-4 mx-auto  max-w-2xl h-full md:h-auto">
           <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-
+            
              <input type="text" placeholder="email">
              <input type="text" placeholder="password">
 

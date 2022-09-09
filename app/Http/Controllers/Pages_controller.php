@@ -60,4 +60,25 @@ class Pages_controller extends Controller
     {
         return view('user');
     }
+
+
+    
+    
+
+    public function login_page()
+    {
+        return view('login');
+    }    
+    public function register_page()
+    {
+        return view('register');
+    }
+
+
+
+
 }
+
+
+
+
