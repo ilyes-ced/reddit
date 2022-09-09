@@ -48,4 +48,11 @@
       </ul>
     </div>
   </div>
+  @if (Auth::user())
+    {{Auth::user()->username}}
+    <form action="{{route('logout')}}" method="post">
+      @csrf
+      <button>logout</button>
+    </form>
+  @endif
 </nav>

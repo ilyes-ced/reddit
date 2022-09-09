@@ -18,7 +18,8 @@ class auth_controller extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('home_page');
+            //return redirect()->intended('home_page');
+            app('App\Http\Controllers\Pages_controller')->home_page();
         }
  
         return back()->withErrors([
@@ -53,9 +54,11 @@ class auth_controller extends Controller
     }
 
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
+        return redirect('/');
+
     }
 }

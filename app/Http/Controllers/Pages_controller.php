@@ -12,7 +12,8 @@ use App\Models\Comment;
 class Pages_controller extends Controller
 {
     public function home_page()
-    {   
+    {   $sub_data=[];
+        $user_data=[];
         $data = array();
         $post = Post::paginate(10);
         $count =  count($post);
