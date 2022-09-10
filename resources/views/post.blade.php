@@ -4,11 +4,15 @@
 <div class="mx-8 mt-4 bg-secondary rounded-lg  border  border-icon">
    <div class=' flex flex-row'> 
 
-    <div class=''>
+    <div class=''>  
+        @php
+            $col_up = in_array($data->id,json_decode(Auth::user()->up_votes)) ? 'text-the_red' : '';
+            $col_down = in_array($data->id,json_decode(Auth::user()->down_votes)) ? 'text-the_red' : ''; 
+        @endphp
         <div id='{{$data->heat}}' class=' h-100 w-10  pt-2 text-center'>
-            <x-bi-caret-up id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
+            <x-bi-caret-up-fill id='up_vote'  class='{{$col_up}} w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
             <p id='heat_score'>{{$data->heat}}</p> 
-            <x-bi-caret-down id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
+            <x-bi-caret-down-fill id='down_vote'  class='{{$col_down}} w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
         </div>
     </div>
 

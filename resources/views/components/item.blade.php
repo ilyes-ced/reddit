@@ -8,9 +8,18 @@
     
                         <div class='bg-main   items-center w-10 text-center '>
                             <div id='{{$item->id}}' class=' h-100 w-10 bg-main pt-2'>
-                                <x-bi-caret-up-fill id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
+                                @php
+                                    if(Auth::user()){          
+                                    $col_up = in_array($item->id,json_decode(Auth::user()->up_votes)) ? 'text-the_red' : '';
+                                    $col_down = in_array($item->id,json_decode(Auth::user()->down_votes)) ? 'text-the_red' : ''; 
+                                    }else{
+                                        $col_up = '';
+                                        $col_down = '';
+                                    }
+                                @endphp
+                                <x-bi-caret-up-fill id='up_vote'  class='{{$col_up}} w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
                                 <p id='heat_score'>{{$item->heat}}</p> 
-                                <x-bi-caret-down-fill id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
+                                <x-bi-caret-down-fill id='down_vote'  class='{{$col_down}}  w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
                             </div>
                         </div>
                     

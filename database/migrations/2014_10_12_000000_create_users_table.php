@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_image')->default('pic5.jpg');
 
             $table->integer('heat')->default(0);
             $table->json('joined_subs')->default('[]');

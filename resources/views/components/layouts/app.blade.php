@@ -25,7 +25,9 @@
         
         <livewire:registration />
         <livewire:login />
-
+        @if (!Auth::user())
+            <x-auth_modal/>
+        @endif
         @livewireScripts
     </body>
 </html>
