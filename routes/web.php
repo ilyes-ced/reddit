@@ -21,7 +21,7 @@ Route::get('/sub/{id}', [Pages_controller::class, 'sub_page']);
 Route::get('/post/{id}', [Pages_controller::class, 'post_page'])->middleware('auth');
 Route::get('/user/{id}', [Pages_controller::class, 'user_page']);
 
-Route::get('/login', [Pages_controller::class, 'login_page']);
+Route::get('/login', [Pages_controller::class, 'login_page'])->name('confirm_login');
 Route::get('/register', [Pages_controller::class, 'register_page']);
 
 Route::post('/registeration', [auth_controller::class, 'register'])->name('register');

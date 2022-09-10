@@ -12,6 +12,11 @@ document.querySelector(".thread_div").addEventListener("click", () => {
 
 //inrement or decrement a posts score
 $( "#down_vote, #up_vote" ).on("click", function() {
+    if($(this).hasClass('text-the_red')){
+        $(this).removeClass('text-the_red')
+    }else{
+        $(this).addClass('text-the_red')
+    }
     $.ajax({
         url : "/vote",
         method: 'post',

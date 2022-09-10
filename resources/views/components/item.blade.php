@@ -8,9 +8,9 @@
     
                         <div class='bg-main   items-center w-10 text-center '>
                             <div id='{{$item->id}}' class=' h-100 w-10 bg-main pt-2'>
-                                <x-bi-caret-up id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
+                                <x-bi-caret-up-fill id='up_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
                                 <p id='heat_score'>{{$item->heat}}</p> 
-                                <x-bi-caret-down id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
+                                <x-bi-caret-down-fill id='down_vote'  class='w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
                             </div>
                         </div>
                     
@@ -29,6 +29,7 @@
                                     <p class='text-gray-400 mt-1 pl-1'> 3h ago</p>
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
+                                <p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>
                                 <a href="#">
                                     {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
                                     <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
