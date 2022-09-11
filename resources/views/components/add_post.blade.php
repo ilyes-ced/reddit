@@ -8,7 +8,7 @@
                     <img class='h-12 w-12 bg-black rounded-full' src="../../images/{{Auth::user()->profile_image}}" alt="">  
                     <input placeholder='create post' class='p-2 rounded-lg bg-main border mx-4 w-full' type="text">
                     <div id='add_post_input_image' class='w-12 h-12 p-2 rounded-lg hover:bg-main'> 
-                        <x-bi-collection-play class='w-8 h-8 text-icons' />
+                        <x-bi-card-image class='w-8 h-8 text-icons' />
                     </div>
 
                 </div>
