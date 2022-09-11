@@ -42,9 +42,9 @@
     </a>
     </div>
 </div>
-
+<div class='m-8'>
 <x-input_box />
-   
+</div>
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>
         

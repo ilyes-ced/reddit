@@ -6,7 +6,11 @@
     <button id='add_post_nav' class=' items-center p-2 h-10 rounded-lg bg-secondary border  '><x-bi-cloud-plus /></button>
     <div class=''>
       <button id='toggle_subs_menu' class='flex  flex-row justify-between  items-center p-2 h-10 rounded-lg bg-secondary border  w-full'><x-bi-house-fill />      <x-bi-chevron-down /></button>
+      @if (Auth::user())
       <x-sub_dropdown :subs="Auth::user()->my_subs"/>
+      @else
+      <x-sub_dropdown :subs="'must login'"/>
+      @endif
       
     </div>
 
@@ -27,7 +31,7 @@
 
       
     @else
-      epiorgjqeoirgjeq^ro
+      <a href="{{URL('/login')}}">login</a>
     @endif
   </div>
 

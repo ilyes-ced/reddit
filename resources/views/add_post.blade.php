@@ -15,17 +15,20 @@
 
         <div class='border bg-main rounded-lg m-8 space-y-2'>
             <div  class='border-b flex flex-row divide-x-2'> 
-                <button class='w-1/2 rounded-tl-lg bg-secondary text-the_red justify-center  p-2 flex flex-row'><x-bi-text-paragraph class='h-6 w-6 mx-2' />Post</button>
-                <button class='w-1/2 rounded-tr-lg   p-2 flex flex-row  justify-center'><x-bi-card-image class='h-6 w-6 mx-2' />Images</button>
+                <button id='post_type' class='w-1/2 rounded-tl-lg bg-secondary text-the_red justify-center  p-2 flex flex-row'><x-bi-text-paragraph class='h-6 w-6 mx-2' />Post</button>
+                <button id='image_type' class='w-1/2 rounded-tr-lg   p-2 flex flex-row  justify-center'><x-bi-card-image class='h-6 w-6 mx-2' />Images</button>
             </div>
             <div class='p-8'>
-                <input  class='mb-4 p-2 rounded-lg bg-main border  w-full'  placeholder='title' type="text">
-                <x-input_box /> 
+                <div id='post_type_div'>
+                    <x-input_box  /> 
+                </div>
+                <div id='image_type_div' class='hidden'>
+                    <x-input_image_box  /> 
+                </div>
             </div>
         </div>
      
 
-        save icons
     </div>
 
     
