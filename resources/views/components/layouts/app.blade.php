@@ -14,19 +14,21 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class='dark:bg-main dark:text-text_color'>
+    <body class='bg-main text-text_color '>
         <!-- nav bar -->
         <x-layouts.nav_bar />
 
-        <div class="font-sans  antialiased">
+        <div class="font-sans  antialiased ">
             {{ $slot }}
+            <x-layouts.footer />
         </div>
-        <x-layouts.footer />
         
         <livewire:registration />
         <livewire:login />
         @if (!Auth::user())
-            <x-auth_modal/>
+            {{--
+                <x-auth_modal/>
+            --}}
         @endif
         @livewireScripts
     </body>

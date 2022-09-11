@@ -51,3 +51,27 @@ $( "#login" ).on("click", function() {
 $( "#login_modal" ).on("click", function() {
     $('#login_modal').addClass('hidden')
 })
+
+
+$( "#toggle_user_menu" ).on("click", function() {
+    $('#user_menu').toggle('hidden')
+})
+$( "#toggle_subs_menu" ).on("click", function() {
+    $('#subs_menu').toggle('hidden')
+})
+
+
+ 
+
+
+$( "#add_post_nav, #add_post_input_image" ).on("click", function() {
+
+    window.location.href = "/add_post"; 
+    alert("'gfregerg"+$(this).attr('id'))
+    
+})
+
+$("#add_post_input").on("click", function() {
+    alert("'gfregerg"+$(this).attr('id'))
+    window.location.href = "/add_post"; 
+})

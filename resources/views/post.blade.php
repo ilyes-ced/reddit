@@ -42,12 +42,8 @@
     </a>
     </div>
 </div>
-<div class='m-8 p-2 bg-secondary rounded-lg  border  border-icon'>
-    <textarea class='w-full' name="" id="" ></textarea>
-    <div>
-        icons bar
-    </div>
-</div>
+
+<x-input_box />
    
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>

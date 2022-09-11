@@ -75,8 +75,11 @@ class Pages_controller extends Controller
         return view('register');
     }
 
-
-
+    public function add_post()
+    {
+        return view('add_post');
+    }
+    
 
 }
 
