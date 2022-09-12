@@ -3,7 +3,6 @@ import './bootstrap';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-import Dropzone from "dropzone";
 
 
 /*
@@ -113,8 +112,7 @@ $("#image_type").on("click", function() {
 
 
 
-
-
+/*
 
 var dropzone = new Dropzone('#images_dropzone', {
     previewTemplate: document.querySelector('#preview-template').innerHTML,
@@ -169,4 +167,4 @@ dropzone.uploadFiles = function (files) {
             }(file, totalSteps, step), duration);
         }
     }
-}
+}*/
