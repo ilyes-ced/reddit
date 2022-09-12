@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    height="60"
-   width="150"
+   width="140"
    clip-rule="evenodd"
    fill-rule="evenodd"
    stroke-linejoin="round"

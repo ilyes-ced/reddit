@@ -26,6 +26,9 @@
                     <x-bi-table class='mx-1 w-10 h-10 p-2 rounded-lg hover:bg-main'/>
                     <x-bi-code class='mx-1 w-10 h-10 p-2 rounded-lg hover:bg-main'/>
                 </div>
+                <div class='flex flex-row'>
+                    <x-bi-card-image class='mx-1 w-10 h-10 p-2 rounded-lg hover:bg-main' />
+                </div>
             </div>
         </div>
     </div>
