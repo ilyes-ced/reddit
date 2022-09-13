@@ -51,7 +51,7 @@
        fill="#222"
        fill-rule="nonzero"
        id="path3655"
-       style="fill:#252a37;fill-opacity:1" />
+       style="fill:#93939e;fill-opacity:1" />
   </g>
   <g
      transform="translate(-14.043 -10.043)"

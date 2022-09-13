@@ -2,12 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages_controller;
-use App\Http\Controllers\Votes_controller;
+use App\Http\Controllers\Posts_data_controller;
 use App\Http\Controllers\auth_controller;
 use App\Http\Controllers\Posts_controller;
 use App\Http\Controllers\Posts_images_controller;
 
-use App\Http\Controllers\DropzoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,16 +37,15 @@ Route::post('/logging', [auth_controller::class, 'login'])->name('login');
 Route::post('/loggingout', [auth_controller::class, 'logout'])->name('logout');
 
 
-Route::post('/vote', [Votes_controller::class, 'index']);
+Route::post('/vote', [Posts_data_controller::class, 'index']);
+Route::post('/bookmarks', [Posts_data_controller::class, 'bookmarks']);
+
 
 
 
 
 Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('auth')->name('create_post');
 Route::post('/create_post_image', [Posts_images_controller::class, 'create'])->middleware('auth')->name('create_post_image');
-
-//Route::post('/edit_post', $info= Textarea::get('description'))(>name('create_post'));
-//Route::post('/delete_post', $info= Textarea::get('description'))(>name('create_post'));
 
 
 

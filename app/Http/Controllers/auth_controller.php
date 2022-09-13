@@ -49,7 +49,7 @@ class auth_controller extends Controller
         Auth::login($user);
 
         //return redirect()->intended('home_page');
-        app('App\Http\Controllers\Pages_controller')->home_page();
+        return redirect('/');
     }
 
 

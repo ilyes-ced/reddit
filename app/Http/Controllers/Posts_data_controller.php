@@ -7,7 +7,7 @@ use App\Models\User;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
-class Votes_controller extends Controller
+class Posts_data_controller extends Controller
 {
     public function index(Request $request)
     { 
@@ -51,4 +51,27 @@ class Votes_controller extends Controller
         }
     
     }
+
+
+    public function bookmarks(Request $request){
+        if(!Auth::user()){
+            return('redirect_to_login');
+        }
+        
+        $var = json_decode(Auth::user()->bookmarks);
+        if(array_search($request->id,$var)){
+            array_splice($var, array_search($request->id,$var), 1);
+        }else{   
+            array_push($var,$request->id); 
+        }        
+
+
+        error_log(json_encode($var));
+        User::find(Auth::user()->id)->update(['bookmarks',json_encode($var)]);
+        error_log('Some 2222222222222 here.');
+    }
+
+
+
+
 }

@@ -7,10 +7,7 @@
                 @foreach (json_decode(Auth::user()->my_subs) as $key => $value)
                     <option value="{{$key}}">{{$value}}</option>
                 @endforeach
-            @endif
-            <option value="fefefe">ff</option>
-            <option value="fefefe">ffffff</option>
-
+            @endif>
         </select>
         
           

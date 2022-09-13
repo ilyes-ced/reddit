@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\Sub;
 use App\Models\User;
 use App\Models\Comment;
-
+use DB;
 
 class Pages_controller extends Controller
 {
@@ -49,11 +49,18 @@ class Pages_controller extends Controller
 
     public function post_page($id)
     {
+        
+        DB::Table('posts')->whereid($id)->increment('views');
         $data = Post::find($id);
+        $user = Post::find($id)->user;
+        $sub = Post::find($id)->sub;
+
         $comments = Comment::where('parent_comment_id',0)->where('post_id',$id)->get();
         $sub_comments = Comment::where('parent_comment_id', '!=', 0)->where('post_id',$id)->get();
 
         return view('post')->with('data',$data)->with('comments',$comments)
+        ->with('user',$user)
+        ->with('sub',$sub)
         ->with('sub_comments',$sub_comments);
     }
 

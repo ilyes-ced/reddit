@@ -15,12 +15,18 @@
 --}}
 
 <input  class='mb-4 p-2 rounded-lg bg-main border  w-full' name='title'  placeholder='title' type="text">
-<div class="bg-secondary container h-40 w-full rounded-xl border border-dashed ">
+<div class="bg-secondary container h-[235px]  rounded-xl border border-dashed ">
     <form id='input_image_form'  action="{{ URL('create_post_image') }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone w-full h-full  flex items-center justify-center cursor-pointer">
         @csrf
         
     </form>
-    <button id='submit_button_images_input' type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main border rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-gray-800">
-        Submit Post
-    </button>
+
+
+
 </div>
+<button id='submit_button_images_input' type="submit" class="mt-4 inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main border rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-gray-800">
+    Submit Post
+</button>
+
+
+

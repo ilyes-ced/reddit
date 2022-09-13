@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('profile_image')->default('pic5.jpg');
 
-            $table->integer('heat')->default(0);
+            $table->integer('heat')->default(0);            
+            $table->json('bookmarks')->default('[]');
             $table->json('joined_subs')->default('[]');
-            $table->json('liked_posts')->default('[]');
             $table->json('comments')->default('[]');
             $table->json('my_posts')->default('[]');
             $table->json('my_subs')->default('[]');

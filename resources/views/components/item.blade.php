@@ -1,13 +1,13 @@
 @props(['item','subs_data','user_data'])
 
-    <div class="py-4  cursor-pointer "  >
+    <div  class=" py-4  cursor-pointer "  >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm rounded-lg border  border-icon">
                 <div class="">
                     <div class='flex flex-row dark:bg-secondary ' >
     
                         <div class='bg-main   items-center w-10 text-center '>
-                            <div id='{{$item->id}}' class=' h-100 w-10 bg-main pt-2'>
+                            <div id='{{$item->id}}' class=' h-100 w-10 bg-main pt-2 '>
                                 @php
                                     if(Auth::user()){          
                                     $col_up = in_array($item->id,json_decode(Auth::user()->up_votes)) ? 'text-the_red' : '';
@@ -29,23 +29,34 @@
     
                             </div>
                         
-                            <div class=''>
+                            <div class='post_clickable' id='{{$item->id}}'>
                                 <div class='p-2 flex l flex-row w-full'>
-                                    <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
                                  
                                     @if (isset($subs_data[$item->sub_id]))
+                                        <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
                                         <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$subs_data[$item->sub_id]->name}}</a>           
                                     @else
                                         <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
                                     @endif
+                                    <p class='text-gray-400 mt-1 pl-1'> ● posted by </p>
                                     @if (isset($user_data[$item->owner_id]))
                                         <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user_data[$item->owner_id]->username}}</a>
                                     @else
                                         <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
                                     @endif
 
+                                    @php
+                                        
+                                        if(((strtotime(now())-strtotime($item->created_at))/3600 )< 24){
+                                            $diff = floor((strtotime(now())-strtotime($item->created_at))/3600).'hrs ago';
+                                        }else{
+                                            $diff = floor((strtotime(now())-strtotime($item->created_at))/3600/24).'days ago';
+                                        }
+
+                                    @endphp
+
                                     
-                                    <p class='text-gray-400 mt-1 pl-1'>{{now()}}</p>
+                                    <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
                                 <p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>
@@ -60,15 +71,15 @@
                         
                         
                             <div class=' flex flex-row w-full h-full '>
-                                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                                <a href='/post/{{$item->id}}' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                                     <x-bi-chat-square-text class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
-                                    comment
+                                    comments
                                 </a>
-                                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                                <a    class='copy_to_clipboard px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                                     <x-bi-share class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
                                     share
                                 </a>
-                                <a href='#' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                                <a id='{{$item->id}}' class='bookmark px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                                     <x-bi-bookmark  class='w-5 h-5 hover:text-the_red mt-1 mr-2'/>
                                     bookmark 
                                 </a>

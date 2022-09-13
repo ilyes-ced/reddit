@@ -4,13 +4,14 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 import Dropzone from "dropzone";
 
+
+if($('.dropzone')[0]){
 var myDropzone = new Dropzone(".dropzone")
 myDropzone.options.imageUpload = {
             maxFilesize         :       2,
             acceptedFiles: ".jpeg,.jpg,.png,.gif"
 };
-
-
+}
 
 
 
@@ -19,10 +20,10 @@ myDropzone.options.imageUpload = {
 $( "#down_vote, #up_vote" ).on("click", function() {
     if($(this).hasClass('text-the_red')){
         $(this).removeClass('text-the_red')
-        $('#heat_score').text(parseInt($('#heat_score').text())-1)
+        $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
     }else{
         $(this).addClass('text-the_red')
-        $('#heat_score').text(parseInt($('#heat_score').text())+1)
+        $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
     }
     $.ajax({
         url : "/vote",
@@ -34,9 +35,35 @@ $( "#down_vote, #up_vote" ).on("click", function() {
          }
       })
     
-  });
+  })
 
   
+
+
+  $( ".bookmark" ).on("click", function() {
+    
+    $(this).toggleClass('text-the_red')
+ 
+    $.ajax({
+        url : "/bookmarks",
+        method: 'post',
+        data: {
+            _token:$('meta[name="csrf-token"]').attr('content'),
+            type: 'bookmark',
+            id: $(this).attr('id'),
+         },success : function(data) {              
+            if(data=='redirect_to_login'){
+                window.location.href = "/login";
+            }else{
+                alert(JSON.stringify(data))
+            }
+        }
+      })
+    
+  })
+
+
+
 //open a post
 $( ".post_clickable" ).on("click", function() {
     window.location.href = "/post/"+$(this).attr('id');
@@ -184,3 +211,11 @@ dropzone.uploadFiles = function (files) {
 $('#submit_button_images_input').on('click', function(){
     $("#input_image_form").submit()
 })
+
+
+$('.copy_to_clipboard').on('click', function(){
+    var copyText = $(this).parent().find('a')[0];
+    navigator.clipboard.writeText(copyText);
+})
+
+
