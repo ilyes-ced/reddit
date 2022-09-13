@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('owner_id');
             $table->integer('sub_id');
             $table->json('content');
-            $table->integer('views');
-            $table->integer('heat');
+            $table->integer('views')->default(0);
+            $table->integer('heat')->default(0);
             //$table->json('comments_ids');
             $table->timestamps();
         });

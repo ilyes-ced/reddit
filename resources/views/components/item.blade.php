@@ -23,26 +23,39 @@
                             </div>
                         </div>
                     
-                        <div class='divide-y divide-icons post_clickable' id='{{$item->id}}'>
+                        <div class='divide-y divide-icons  w-full' id='{{$item->id}}'>
                             <div class='p-2'>
                                 additional information
     
                             </div>
                         
-                            <div>
-                                <div class='p-2 flex  flex-row w-full'>
+                            <div class=''>
+                                <div class='p-2 flex l flex-row w-full'>
                                     <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
-                                    <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$subs_data[$item->sub_id]->name}}</a>           
-                                    <p class='mt-1 text-gray-400 pl-1'>. posted by </p>
-                                    <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user_data[$item->owner_id]->username}}</a>
-                                    <p class='text-gray-400 mt-1 pl-1'> 3h ago</p>
+                                 
+                                    @if (isset($subs_data[$item->sub_id]))
+                                        <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$subs_data[$item->sub_id]->name}}</a>           
+                                    @else
+                                        <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
+                                    @endif
+                                    @if (isset($user_data[$item->owner_id]))
+                                        <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user_data[$item->owner_id]->username}}</a>
+                                    @else
+                                        <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
+                                    @endif
+
+                                    
+                                    <p class='text-gray-400 mt-1 pl-1'>{{now()}}</p>
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
                                 <p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>
-                                <a href="#">
-                                    {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
-                                    <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
-                                </a>
+                               @if (isset(json_decode($item->content, true)["images"]))
+                                    <a href="#">
+                                        {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
+                                        <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
+                                    
+                                    </a>
+                               @endif
                             </div>
                         
                         

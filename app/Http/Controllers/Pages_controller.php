@@ -15,16 +15,17 @@ class Pages_controller extends Controller
     {   $sub_data=[];
         $user_data=[];
         $data = array();
-        $post = Post::paginate(10);
+        $post = Post::orderByDesc('created_at')->paginate(10);
         $count =  count($post);
         for ($i = 1; $i <= $count-1; $i++) {
             if(!isset($sub_data[$post[$i]->sub_id])){
                 $sub_data[$post[$i]->sub_id] = Sub::where('id',$post[$i]->sub_id)->first();
             }
             if(!isset($user_data[$post[$i]->owner_id])){
-                $user_data[$post[$i]->owner_id] = User::where('id',$post[$i]->sub_id)->first();;
+                $user_data[$post[$i]->owner_id] = User::where('id',$post[$i]->owner_id)->first();;
             }
         }
+        
         return view('home_page')->with('post',$post)->with('subs_data',$sub_data)->with('user_data',$user_data);
     }
 

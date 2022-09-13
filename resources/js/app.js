@@ -2,21 +2,27 @@ import './bootstrap';
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+import Dropzone from "dropzone";
+
+var myDropzone = new Dropzone(".dropzone")
+myDropzone.options.imageUpload = {
+            maxFilesize         :       2,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif"
+};
 
 
 
-/*
-document.querySelector(".thread_div").addEventListener("click", () => {
-    document.querySelector("#defaultModal").classList.toggle("hidden");
-});
-*/
+
+
 
 //inrement or decrement a posts score
 $( "#down_vote, #up_vote" ).on("click", function() {
     if($(this).hasClass('text-the_red')){
         $(this).removeClass('text-the_red')
+        $('#heat_score').text(parseInt($('#heat_score').text())-1)
     }else{
         $(this).addClass('text-the_red')
+        $('#heat_score').text(parseInt($('#heat_score').text())+1)
     }
     $.ajax({
         url : "/vote",
@@ -28,7 +34,6 @@ $( "#down_vote, #up_vote" ).on("click", function() {
          }
       })
     
-    $('#heat_score').val($('#heat_score').text()+1)
   });
 
   
@@ -98,11 +103,16 @@ $("#image_type").on("click", function() {
 
 
 
+$('#main_select').on('change', function(){
+    $('#submit_button').removeClass('bg-main')
+    $('#submit_button').removeClass('hover:bg-gray-800')
+    $('#submit_button').addClass('bg-the_red')
+    $('#submit_button').addClass('hover:bg-red-800')
+    $('#submit_button').prop('disabled',false)
+    $('#selected_sub_input').val($('#main_select').val())
+    $('#selected_sub_input_image').val($('#main_select').val())
 
-
-
-
-
+})
 
 
 
@@ -168,3 +178,9 @@ dropzone.uploadFiles = function (files) {
         }
     }
 }*/
+
+
+
+$('#submit_button_images_input').on('click', function(){
+    $("#input_image_form").submit()
+})

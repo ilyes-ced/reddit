@@ -12,6 +12,7 @@ class Post extends Model
     
     protected $table = 'Posts';
 
+    protected $fillable = ['owner_id','sub_id','content'];
 
 
 

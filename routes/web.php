@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages_controller;
 use App\Http\Controllers\Votes_controller;
 use App\Http\Controllers\auth_controller;
+use App\Http\Controllers\Posts_controller;
+use App\Http\Controllers\Posts_images_controller;
+
+use App\Http\Controllers\DropzoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +19,10 @@ use App\Http\Controllers\auth_controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
 
 Route::get('/', [Pages_controller::class, 'home_page']);
 Route::get('/sub/{id}', [Pages_controller::class, 'sub_page']);
@@ -31,3 +39,16 @@ Route::post('/loggingout', [auth_controller::class, 'logout'])->name('logout');
 
 
 Route::post('/vote', [Votes_controller::class, 'index']);
+
+
+
+
+Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('auth')->name('create_post');
+Route::post('/create_post_image', [Posts_images_controller::class, 'create'])->middleware('auth')->name('create_post_image');
+
+//Route::post('/edit_post', $info= Textarea::get('description'))(>name('create_post'));
+//Route::post('/delete_post', $info= Textarea::get('description'))(>name('create_post'));
+
+
+
+
