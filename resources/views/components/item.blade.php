@@ -79,6 +79,13 @@
                                     <x-bi-share class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
                                     share
                                 </a>
+                                @php
+                                    if(Auth::user()){          
+                                        $book = in_array($item->id,json_decode(Auth::user()->bookmarks)) ? 'text-the_red' : '';
+                                    }else{
+                                        $book = '';
+                                    }
+                                @endphp
                                 <a id='{{$item->id}}' class='bookmark px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                                     <x-bi-bookmark  class='w-5 h-5 hover:text-the_red mt-1 mr-2'/>
                                     bookmark 

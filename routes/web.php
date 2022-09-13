@@ -6,6 +6,8 @@ use App\Http\Controllers\Posts_data_controller;
 use App\Http\Controllers\auth_controller;
 use App\Http\Controllers\Posts_controller;
 use App\Http\Controllers\Posts_images_controller;
+use App\Http\Controllers\Users_controller;
+use App\Http\Controllers\Subs_controller;
 
 
 /*
@@ -41,6 +43,8 @@ Route::post('/vote', [Posts_data_controller::class, 'index']);
 Route::post('/bookmarks', [Posts_data_controller::class, 'bookmarks']);
 
 
+Route::post('/join_leave_sub', [Users_controller::class, 'join_leave']);
+Route::post('/join_leave_sub_auth', [Users_controller::class, 'join_leave_auth'])->middleware('auth');
 
 
 

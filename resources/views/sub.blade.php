@@ -10,7 +10,14 @@
             <img class='border border-icons w-20 h-20 rounded-full' src="../../images/pic1.jpg" alt="">
 
             <p class='text-[25px] mt-5 mx-4 '>{{$data->name}}</p>  
-            <button class='text-[25px] rounded-full bg-the_red w-20 h-10 mt-5 mx-10'>join</button>
+            @if (Auth::user())
+                <button id='join_leave' class='text-[25px] rounded-full bg-the_red   p-6'>join</button>
+            @else
+                <form action=" {{URL('/')}} " method='post'>
+                    @csrf
+                    <button  class='text-[25px] rounded-full bg-the_red w-20 h-10 mt-5 mx-10'>join</button>
+                </form>
+            @endif
         </div>
     </div>
     

@@ -18,12 +18,22 @@ myDropzone.options.imageUpload = {
 
 //inrement or decrement a posts score
 $( "#down_vote, #up_vote" ).on("click", function() {
-    if($(this).hasClass('text-the_red')){
-        $(this).removeClass('text-the_red')
-        $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
-    }else{
-        $(this).addClass('text-the_red')
-        $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
+    if($(this).attr('id')=='up_vote'){
+        if($(this).hasClass('text-the_red')){
+            $(this).removeClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
+        }else{
+            $(this).addClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
+        }
+    }else if($(this).attr('id')=='down_vote'){
+        if($(this).hasClass('text-the_red')){
+            $(this).removeClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
+        }else{
+            $(this).addClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
+        }
     }
     $.ajax({
         url : "/vote",
@@ -34,7 +44,6 @@ $( "#down_vote, #up_vote" ).on("click", function() {
             id: $(this).parent().attr('id'),
          }
       })
-    
   })
 
   
@@ -54,8 +63,6 @@ $( "#down_vote, #up_vote" ).on("click", function() {
          },success : function(data) {              
             if(data=='redirect_to_login'){
                 window.location.href = "/login";
-            }else{
-                alert(JSON.stringify(data))
             }
         }
       })
@@ -217,5 +224,14 @@ $('.copy_to_clipboard').on('click', function(){
     var copyText = $(this).parent().find('a')[0];
     navigator.clipboard.writeText(copyText);
 })
+
+
+
+
+$('#join_leave').on('click', function(){
+   // alert($(this).text())
+    $(this).toggleClass('bg-the_red border-2 border-the_red bg-transparent')
+})
+
 
 

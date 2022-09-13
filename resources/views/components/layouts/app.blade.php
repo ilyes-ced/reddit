@@ -23,9 +23,12 @@
             {{ $slot }}
             <x-layouts.footer />
         </div>
+        {{--
+            <livewire:registration />
+            <livewire:login />
+        --}}
         
-        <livewire:registration />
-        <livewire:login />
+
         @if (!Auth::user())
             {{--
                 <x-auth_modal/>

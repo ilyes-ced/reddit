@@ -1,5 +1,5 @@
 
-<nav class="pr-6 bg-main  border-b flex flex-row items-center justify-between sticky top-0 z-50">
+<nav class="pr-8 pl-4 bg-main  border-b flex flex-row items-center justify-between sticky top-0 z-50">
   <div class='flex flex-row items-center space-x-2'>
 
     <a href="{{URL('/')}}"><x-nav_icon /></a>
