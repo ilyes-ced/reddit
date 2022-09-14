@@ -8,6 +8,8 @@ use App\Http\Controllers\Posts_controller;
 use App\Http\Controllers\Posts_images_controller;
 use App\Http\Controllers\Users_controller;
 use App\Http\Controllers\Subs_controller;
+use App\Http\Controllers\Comments_controller;
+
 
 
 /*
@@ -46,6 +48,7 @@ Route::post('/bookmarks', [Posts_data_controller::class, 'bookmarks']);
 Route::post('/join_leave_sub', [Users_controller::class, 'join_leave']);
 Route::post('/join_leave_sub_auth', [Users_controller::class, 'join_leave_auth'])->middleware('auth');
 
+Route::post('/create_comment', [Comments_controller::class, 'create'])->middleware('auth')->name('create_comment');
 
 
 Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('auth')->name('create_post');

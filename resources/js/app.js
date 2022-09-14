@@ -230,7 +230,23 @@ $('.copy_to_clipboard').on('click', function(){
 
 $('#join_leave').on('click', function(){
    // alert($(this).text())
-    $(this).toggleClass('bg-the_red border-2 border-the_red bg-transparent')
+    $(this).toggleClass('bg-the_red text-main border-the_red bg-transparent')
+    if($(this).text()=='join'){
+        $(this).text('leave')
+    }else{
+        $(this).text('join')
+    }
+    $.ajax({
+        url : "/join_leave_sub",
+        method: 'post',
+        data: {
+            _token:$('meta[name="csrf-token"]').attr('content'),
+            id: $(this).parent().attr('id'),
+         },success : function(data) {              
+            alert(data)
+        }
+      })
+    
 })
 
 

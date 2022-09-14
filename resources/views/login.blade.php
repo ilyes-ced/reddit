@@ -23,6 +23,16 @@
 
 
       <div class='border bg-secondary rounded-lg  p-8 w-[600px]'>
+        
+@if ($errors->any())
+<div class="flex justify-center">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li class='text-the_red'>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
         <p class='text-[25px] font-bold mb-4'>Welcome back</p>
         <div class='flex flex-row'>
           <button class='border rounded-lg w-1/2 mr-2 h-10 bg-main flex flex-row  items-center  justify-center hover:bg-secondary hover:text-the_red'><x-bi-google class='mx-2'/>Log in with google</button>          
@@ -51,12 +61,12 @@
                 <label for="checkbox">remember me</label>
               </div>
 
-              <a href="" class='text-the_red'>forgot password</a>
+              <a href="" class='text-the_red underline' >forgot password</a>
             </div>
             
-            <button class='w-full bg-the_red rounded-lg h-10 mb-4'>submit</button>
+            <button class='w-full bg-the_red rounded-lg h-10 mb-4 hover:bg-main hover:border hover:border-the_red'>submit</button>
           </form>
-          dont you have accoutn?  <a href="{{URL('/register')}}" class='text-the_red'>sign up here</a>
+          dont you have accoutn?  <a href="{{URL('/register')}}" class='underline text-the_red'>sign up here</a>
         </div>
       </div>
 

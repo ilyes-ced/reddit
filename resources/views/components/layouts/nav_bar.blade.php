@@ -3,7 +3,7 @@
   <div class='flex flex-row items-center space-x-2'>
 
     <a href="{{URL('/')}}"><x-nav_icon /></a>
-    <button id='add_post_nav' class=' items-center p-2 h-10 rounded-lg bg-secondary border  '><x-bi-cloud-plus /></button>
+    <button id='add_post_nav' class=' items-center p-2 px-2.5 h-10 rounded-lg bg-secondary border  '><x-bi-cloud-plus /></button>
     <div class=''>
       <button id='toggle_subs_menu' class='flex  flex-row justify-between  items-center p-2 h-10 rounded-lg bg-secondary border  w-full'><x-bi-house-fill />      <x-bi-chevron-down /></button>
       @if (Auth::user())

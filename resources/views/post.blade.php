@@ -84,7 +84,7 @@
     </div>
 </div>
 <div class='m-8'>
-<x-input_box />
+<x-input_box_comment />
 </div>
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>
@@ -92,22 +92,30 @@
         @if (count($comments)==0)
             <p class='text-[25px] text-center'>no comments yet</p>
         @endif
-        @foreach ($comments as $item)
-            <x-comment :item='$item' />  
-            @php ($var = $item->id)
-            {{$sub_comments}}
-            @foreach ($sub_comments as $item)
-                <div  class='flex flex_row divide-x ml-3'>
-                    <div class=''></div>
-                    <div class='ml-4 w-full'>
-                        <x-comment :item='$item' /> 
-                    </div>
-                </div>
-            @endforeach
 
-        @endforeach
+            <x-comment :comments='$comments' /> 
+        
+     
     </div>
 </div>
     
 </x-layouts.app>
 
+
+
+{{--
+        @foreach ($comments as $item)
+            <x-comment :item='$item' />   
+                @foreach ($sub_comments as $sub_item)
+                    @if ($sub_item->parent_comment_id==$item->id)
+                        <div  class='flex flex_row divide-x ml-3'>
+                            <div class=''></div>
+                            <div class='ml-4 w-full'>
+                                <x-comment :item='$sub_item' />
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+        @endforeach
+        
+    --}}
