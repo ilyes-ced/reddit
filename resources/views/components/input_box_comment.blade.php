@@ -1,4 +1,5 @@
-<form action="{{route('create_comment')}}" method="POST" id='input'>
+@props(["post_id"])
+<form action="{{URL('create_comment')}}" method="POST" id='input'>
     @csrf
     <div class=" bg-gray-50 rounded-lg border border-gray-200 ">
         <div class="py-2 px-4 bg-main rounded-t-lg  ">
@@ -6,9 +7,11 @@
             <textarea name='main_text' id="comment" rows="6" class="bg-main px-0 w-full text-sm text-the_text  border-0  focus:ring-0 " placeholder="Write a comment..." required=""></textarea>
         </div>
         <div class=" rounded-b-lg flex justify-between items-center py-2 px-3 border-t d bg-secondary ">
-            <button data-tooltip-target="tooltip-default" disabled id='submit_button' type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main border rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-gray-800">
-                Submit Post
+            <button  id='submit_button' type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main border rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-gray-800">
+                post comment
             </button>
+            <input type="hidden" name="post_id" value='{{$post_id}}'>
+            <input type="submit" value="">
             <div class="flex   divide-x">
                 <div class='flex flex-row'>
                     <x-bi-type-bold class='mx-1 w-10 h-10 p-2 rounded-lg hover:bg-main'/>
@@ -31,5 +34,4 @@
             </div>
         </div>
     </div>
-
 </form>

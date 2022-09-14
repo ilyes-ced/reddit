@@ -84,7 +84,16 @@
     </div>
 </div>
 <div class='m-8'>
-<x-input_box_comment />
+@if ($errors->any())
+<div class="flex justify-center">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li class='text-the_red'>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<x-input_box_comment :post_id="$data->id"/>
 </div>
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>

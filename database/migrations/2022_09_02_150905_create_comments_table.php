@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('owner_id');
             $table->integer('post_id');
             $table->integer('parent_comment_id');
-            $table->integer('level');
-            $table->integer('heat');
+            //$table->integer('level');
+            $table->integer('heat')->default(0);
             $table->timestamps();
         });
     }

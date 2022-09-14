@@ -3,11 +3,11 @@
     <div>
         <select required id='main_select' class="w-4/12 p-2 bg-secondary rounded-lg border mx-8 mt-8">
             <option selected disabled>Choose a country</option>
-            @if (json_decode(Auth::user()->my_subs))
-                @foreach (json_decode(Auth::user()->my_subs) as $key => $value)
-                    <option value="{{$key}}">{{$value}}</option>
+            @if (Auth::user())
+                @foreach ($subs as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
-            @endif>
+            @endif
         </select>
         
           

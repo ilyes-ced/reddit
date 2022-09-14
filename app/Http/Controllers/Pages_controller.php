@@ -8,6 +8,7 @@ use App\Models\Sub;
 use App\Models\User;
 use App\Models\Comment;
 use DB;
+use Auth;
 
 class Pages_controller extends Controller
 {
@@ -89,7 +90,10 @@ class Pages_controller extends Controller
 
     public function add_post()
     {
-        return view('add_post');
+        if (Auth::user()){
+            $joined = Sub::find(json_decode(Auth::user()->joined_subs));
+        }
+        return view('add_post')->with('subs',$joined);
     }
     
 
