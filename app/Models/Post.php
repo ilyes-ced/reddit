@@ -10,7 +10,6 @@ class Post extends Model
     use HasFactory;
 
     
-    protected $table = 'Posts';
 
     protected $fillable = ['owner_id','sub_id','content'];
 

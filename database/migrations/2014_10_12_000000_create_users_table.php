@@ -30,6 +30,8 @@ return new class extends Migration
             
             $table->json('up_votes')->default('[]');
             $table->json('down_votes')->default('[]');
+            $table->json('up_votes_comments')->default('[]');
+            $table->json('down_votes_comments')->default('[]');
 
             $table->rememberToken();
             $table->timestamps();

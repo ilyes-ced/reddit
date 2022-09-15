@@ -16,19 +16,24 @@
         @livewireStyles
     </head>
     <body class='bg-main text-text_color '>
+        <x-pop_up />
+
         <!-- nav bar -->
         <x-layouts.nav_bar />
 
         <div class="font-sans  antialiased ">
             {{ $slot }}
-            <x-layouts.footer />
+            
         </div>
+        <x-layouts.footer />
         {{--
             <livewire:registration />
             <livewire:login />
         --}}
         
 
+       
+        
         @if (!Auth::user())
             {{--
                 <x-auth_modal/>

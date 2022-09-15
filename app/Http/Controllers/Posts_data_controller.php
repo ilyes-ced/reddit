@@ -26,7 +26,7 @@ class Posts_data_controller extends Controller
                 $user = User::find(Auth::user()->id);
                 $user->up_votes = $votes;
                 $user->save();
-                //return response()->json('succsess');
+                return ('succsess1');
             }elseif($request->type == 'down_vote'){
                 $list = User::find(Auth::user()->id);
                 $votes = json_decode($list->down_votes);                
@@ -41,13 +41,13 @@ class Posts_data_controller extends Controller
                 $user = User::find(Auth::user()->id);
                 $user->down_votes = $votes;
                 $user->save();
-                //return response()->json('succsess');
+                return ('succsess2');
             }else{
-                //return response()->json('failed beacause of manipilated html votes up down');
+                return('gergerg');
             }
 
         }else{
-            //return response()->json('failed beacause of manipilated html is');
+            return('fgeg57469');
         }
     
     }

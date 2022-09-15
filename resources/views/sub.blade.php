@@ -28,8 +28,8 @@
         </div>
     </div>
     
-    @foreach ($posts as $item)
-    <x-item  :item='$item' :subs_data='$subs_data' :user_data='$user_data'/>
+    @foreach ($data->post as $item)
+    <x-item  :item='$item'/>
     @endforeach
 </x-layouts.app>
 

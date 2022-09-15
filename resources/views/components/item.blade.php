@@ -1,6 +1,5 @@
-@props(['item','subs_data','user_data'])
 
-    <div  class=" py-4  cursor-pointer "  >
+    <div id='{{$item->id}}' class=" py-4  cursor-pointer "  >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm rounded-lg border  border-icon">
                 <div class="">
@@ -32,27 +31,27 @@
                             <div class='post_clickable' id='{{$item->id}}'>
                                 <div class='p-2 flex l flex-row w-full'>
                                  
-                                    @if (isset($subs_data[$item->sub_id]))
+                                    @if (isset($item->sub))
                                         <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
-                                        <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$subs_data[$item->sub_id]->name}}</a>           
+                                        <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$item->sub->name}}</a>           
                                     @else
                                         <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
                                     @endif
                                     <p class='text-gray-400 mt-1 pl-1'> ● posted by </p>
-                                    @if (isset($user_data[$item->owner_id]))
-                                        <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user_data[$item->owner_id]->username}}</a>
+                                    @if (isset($item->user))
+                                        <a href='/user/{{$item->owner_id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$item->user->username}}</a>
                                     @else
                                         <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
                                     @endif
 
                                     @php
-                                        
-                                        if(((strtotime(now())-strtotime($item->created_at))/3600 )< 24){
-                                            $diff = floor((strtotime(now())-strtotime($item->created_at))/3600).'hrs ago';
-                                        }else{
-                                            $diff = floor((strtotime(now())-strtotime($item->created_at))/3600/24).'days ago';
-                                        }
-
+                                    if(((strtotime(now())-strtotime($item->created_at)) )< 3600){
+                                        $diff = floor((strtotime(now())-strtotime($item->created_at))/60).'minutes ago';
+                                    }elseif(((strtotime(now())-strtotime($item->created_at))/3600 )< 24){
+                                        $diff = floor((strtotime(now())-strtotime($item->created_at))/3600).'hrs ago';
+                                    }else{
+                                        $diff = floor((strtotime(now())-strtotime($item->created_at))/3600/24).'days ago';
+                                    }
                                     @endphp
 
                                     
