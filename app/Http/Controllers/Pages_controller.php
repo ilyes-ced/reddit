@@ -14,7 +14,8 @@ class Pages_controller extends Controller
 {
     public function home_page()
     {
-        $post = Post::orderByDesc('created_at')->paginate(10);
+        //$post = Post::orderByDesc('created_at')->paginate(10);
+        $post = Post::orderByDesc('created_at')->take(5)->get();
         return view('home_page')->with('post',$post);
     }
 
@@ -74,7 +75,22 @@ class Pages_controller extends Controller
         }
         return view('add_post')->with('subs',$joined);
     }
-    
+
+
+
+    public function load_more(Request $request)
+    {
+        if(ctype_digit($request->id)){
+            $posts = DB::table('users')
+                ->offset($request->number_of_elments)
+                ->limit(5)
+                ->get();
+            return($posts);
+
+        }else{
+            return('errrrr');
+        }
+    }
 
 }
 
