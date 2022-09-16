@@ -16,9 +16,8 @@ myDropzone.options.imageUpload = {
 
 
 
-
-//inrement or decrement a posts score
-$( "#down_vote, #up_vote" ).on("click", function() {
+//up vote down vote posts
+$('body').on('click', '#down_vote, #up_vote', function() {
     if($(this).attr('id')=='up_vote'){
         if($(this).hasClass('text-the_red')){
             $(this).removeClass('text-the_red')
@@ -43,20 +42,20 @@ $( "#down_vote, #up_vote" ).on("click", function() {
             _token:$('meta[name="csrf-token"]').attr('content'),
             type: $(this).attr('id'),
             id: $(this).parent().attr('id'),
-         },
-         success : function(data) {            
-           
-         }
-      })
-  })
-
-  
+        },
+        success : function(data) {            
+            
+        }
+    })
+});
 
 
-  $( ".bookmark" ).on("click", function() {
-    
+
+
+
+//bookmark post
+$('body').on('click', '.bookmark', function() {
     $(this).toggleClass('text-the_red')
- 
     $.ajax({
         url : "/bookmarks",
         method: 'post',
@@ -64,22 +63,25 @@ $( "#down_vote, #up_vote" ).on("click", function() {
             _token:$('meta[name="csrf-token"]').attr('content'),
             type: 'bookmark',
             id: $(this).attr('id'),
-         },success : function(data) {              
+        },success : function(data) {              
             if(data=='redirect_to_login'){
                 window.location.href = "/login";
             }
         }
-      })
+    })
     
-  })
+})
 
 
 
 //open a post
-$( ".post_clickable" ).on("click", function() {
+$('body').on('click', '.post_clickable', function() {
     window.location.href = "/post/"+$(this).attr('id');
 })
-  
+
+
+
+
 
 
 $( "#register" ).on("click", function() {
@@ -115,7 +117,6 @@ $( "#add_post_nav, #add_post_input_image" ).on("click", function() {
 $("#add_post_input").on("click", function() {
     window.location.href = "/add_post"; 
 })
-
 
 
 
@@ -160,7 +161,8 @@ $('#submit_button_images_input').on('click', function(){
 })
 
 
-$('.copy_to_clipboard').on('click', function(){
+
+$('body').on('click', '.copy_to_clipboard', function() {
     var copyText = $(this).parent().find('a')[0];
     navigator.clipboard.writeText(copyText);
 })
@@ -231,32 +233,8 @@ function start(){
         var number_of_elments = ($('#posts_cont').children().length)-1
         $('#posts_cont').append('<div id="to_be_removed" role="status" class="m-6 rounded-lg border border-gray-200 shadow animate-pulse md:p-6 dark:border-gray-700"><div class="flex justify-center items-center mb-4 h-48 bg-gray-300 rounded dark:bg-gray-700"><svg class="w-12 h-12 text-gray-200 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512" data-darkreader-inline-fill="" style="--darkreader-inline-fill:currentColor;"><path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path></svg></div><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div><div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div><div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div><div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div><div class="flex items-center mt-4 space-x-3"><div><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"></div><div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div></div></div><span class="sr-only">Loading...</span></div>')
         window.livewire.emit('load-more');
-        /*
-        $.ajax({
-            url : "/load_more",
-            method: 'post',
-            data: {
-                _token:$('meta[name="csrf-token"]').attr('content'),
-                number_of_elments: number_of_elments,
-                id: last_id,
-            },
-            success : function(data) {   
-                $("#to_be_removed").remove();   
-                
-                $('#posts_cont').append(data)
-                
-                
-                
-            }
-        })*/
     }
 }
-//const box = document.querySelector('#divdiv')
-
-//const box = $('#posts_cont').children().last().attr('id')
-//const box = document.querySelector('#posts_cont').lastElementChild
-
-
 document.addEventListener('scroll', function () {
     isInViewport(document.querySelector('#posts_cont').lastElementChild) ?
     start() :
@@ -264,3 +242,46 @@ document.addEventListener('scroll', function () {
 }, {
     passive: true
 })
+
+
+
+
+
+
+
+
+
+
+
+
+$('body').on('click', '#down_vote_comment, #up_vote_comment', function() {
+    if($(this).attr('id')=='up_vote_comment'){
+        if($(this).hasClass('text-the_red')){
+            $(this).removeClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
+        }else{
+            $(this).addClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
+        }
+    }else if($(this).attr('id')=='down_vote_comment'){
+        if($(this).hasClass('text-the_red')){
+            $(this).removeClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())+1)
+        }else{
+            $(this).addClass('text-the_red')
+            $(this).parent().find('p').text(parseInt($(this).parent().find('p').text())-1)
+        }
+    }
+    $.ajax({
+        url : "/vote_comment",
+        method: 'post',
+        data: {
+            _token:$('meta[name="csrf-token"]').attr('content'),
+            type: $(this).attr('id'),
+            id: $(this).parent().attr('id'),
+        },
+        success : function(data) {            
+            alert(JSON.stringify(data))
+        }
+    })
+});

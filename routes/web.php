@@ -32,6 +32,8 @@ Route::get('/sub/{id}', [Pages_controller::class, 'sub_page']);
 Route::get('/post/{id}', [Pages_controller::class, 'post_page']);
 Route::get('/user/{id}', [Pages_controller::class, 'user_page']);
 Route::get('/add_post', [Pages_controller::class, 'add_post'])->middleware('auth');
+Route::get('/profile_page', [Pages_controller::class, 'profile_page'])->middleware('auth');
+
 //Route::post('/load_more', [Pages_controller::class, 'load_more']);
 
 
@@ -52,6 +54,7 @@ Route::post('/join_leave_sub', [Users_controller::class, 'join_leave']);
 Route::post('/join_leave_sub_auth', [Users_controller::class, 'join_leave_auth'])->middleware('auth');
 
 Route::post('/create_comment', [Comments_controller::class, 'create_comment'])->middleware('auth')->name('create_comment');
+Route::post('/vote_comment', [Comments_controller::class, 'vote_comment'])->middleware('auth')->name('vote_comment');
 
 
 Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('auth')->name('create_post');

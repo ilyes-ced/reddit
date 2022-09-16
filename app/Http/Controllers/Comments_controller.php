@@ -29,4 +29,12 @@ class Comments_controller extends Controller
         //tempo
         return redirect()->back();
     }
+
+
+    public function vote_comment(Request $request)
+    {
+        
+    }
+
+
 }

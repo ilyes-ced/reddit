@@ -33,20 +33,8 @@ class Pages_controller extends Controller
         
         DB::Table('posts')->whereid($id)->increment('views');
         $data = Post::find($id);
-        $user = Post::find($id)->user;
-        $sub = Post::find($id)->sub;
-
         $comments = Comment::where('parent_comment_id',0)->where('post_id',$id)->get();
-        //$sub_comments = Comment::where('parent_comment_id', '!=', 0)->where('post_id',$id)->get();
-        //$comments = Comment::where('post_id',$id)->get();
-
-
-        
-
-        return view('post')->with('data',$data)->with('comments',$comments)
-        ->with('user',$user)
-        ->with('sub',$sub)
-       /*->with('sub_comments',$sub_comments)*/;
+        return view('post')->with('data',$data)->with('comments',$comments);
     }
 
     
@@ -91,6 +79,13 @@ class Pages_controller extends Controller
         }
     }
 */
+
+public function profile_page()
+{
+    return view('profile_page');
+}
+
+
 }
 
 

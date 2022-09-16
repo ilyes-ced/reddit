@@ -27,6 +27,7 @@ class Posts_data_controller extends Controller
                 $user->up_votes = $votes;
                 $user->save();
                 return ('succsess1');
+
             }elseif($request->type == 'down_vote'){
                 $list = User::find(Auth::user()->id);
                 $votes = json_decode($list->down_votes);                
@@ -59,7 +60,6 @@ class Posts_data_controller extends Controller
         }
         $var = json_decode(Auth::user()->bookmarks);
         if(in_array($request->id,$var)){
-            error_log('gergerg');
             array_splice($var, array_search($request->id,$var), 1);
         }else{   
             array_push($var,$request->id); 
