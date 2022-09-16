@@ -85,7 +85,7 @@
                                         $book = '';
                                     }
                                 @endphp
-                                <a id='{{$item->id}}' class='bookmark px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+                                <a id='{{$item->id}}' class='bookmark {{$book}} px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                                     <x-bi-bookmark  class='w-5 h-5 hover:text-the_red mt-1 mr-2'/>
                                     bookmark 
                                 </a>

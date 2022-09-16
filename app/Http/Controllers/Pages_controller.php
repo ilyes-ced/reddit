@@ -77,7 +77,7 @@ class Pages_controller extends Controller
     }
 
 
-
+/*
     public function load_more(Request $request)
     {
         if(ctype_digit($request->id)){
@@ -85,13 +85,12 @@ class Pages_controller extends Controller
                 ->offset($request->number_of_elments)
                 ->limit(5)
                 ->get();
-            return($posts);
-
+                return("f");
         }else{
             return('errrrr');
         }
     }
-
+*/
 }
 
 

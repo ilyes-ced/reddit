@@ -32,7 +32,7 @@ Route::get('/sub/{id}', [Pages_controller::class, 'sub_page']);
 Route::get('/post/{id}', [Pages_controller::class, 'post_page']);
 Route::get('/user/{id}', [Pages_controller::class, 'user_page']);
 Route::get('/add_post', [Pages_controller::class, 'add_post'])->middleware('auth');
-Route::post('/load_more', [Pages_controller::class, 'load_more']);
+//Route::post('/load_more', [Pages_controller::class, 'load_more']);
 
 
 
