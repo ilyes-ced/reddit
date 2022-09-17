@@ -82,7 +82,15 @@ class Pages_controller extends Controller
 
 public function profile_page()
 {
-    return view('profile_page');
+    $posts = Post::where('owner_id', Auth::user()->id)->get();
+    $comments = Comment::where('owner_id', Auth::user()->id)->get();
+    $up_votes = Comment::where('id', json_decode(Auth::user()->up_votes))->get();
+    $down_votes = Comment::where('id', json_decode(Auth::user()->down_votes))->get();
+
+    return view('profile_page')->with('posts',$posts)
+    ->with('comments',$comments)
+    ->with('up_votes',$up_votes)
+    ->with('down_votes',$down_votes);
 }
 
 
