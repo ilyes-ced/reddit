@@ -30,7 +30,7 @@
                         
                             <div class='post_clickable' id='{{$item->id}}'>
                                 <div class='p-2 flex l flex-row w-full'>
-                                 
+                                
                                     @if (isset($item->sub))
                                         <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
                                         <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$item->sub->name}}</a>           
@@ -59,13 +59,25 @@
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
                                 <p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>
-                               @if (isset(json_decode($item->content, true)["images"]))
-                                    <a href="#">
-                                        {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
-                                        <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
+                                @if (isset(json_decode($item->content, true)["images"]))
                                     
-                                    </a>
-                               @endif
+                                    {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
+                                    <div class='hover_hide flex items-center '>
+                                        <button class='prev_img hidden absolute  rounded-tr-lg rounded-br-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-r hover:border-black'><x-bi-chevron-left class='h-10 w-6' /></button>
+                                        <button class='next_img hidden absolute  right-6  rounded-tl-lg rounded-bl-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-l hover:border-black'><x-bi-chevron-right class='h-10 w-6' /></button>
+                                        <div class='img_index hidden absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($item->content, true)["images"])}}</div>
+                                        @foreach (json_decode($item->content)->images as $img_src)
+                                            @if ($loop->first)
+                                                <img class='main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                                            @else
+                                                <img class='hidden main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                                            @endif
+                                        @endforeach
+                                        
+                                    </div>
+                                
+                                    
+                                @endif
                             </div>
                         
                         

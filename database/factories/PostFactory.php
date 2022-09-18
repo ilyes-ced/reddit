@@ -20,7 +20,6 @@ class PostFactory extends Factory
             'owner_id' => fake()->randomDigitNot(0),
             'sub_id' => fake()->randomDigitNot(0),
             'content' => json_encode(['title'=>'big title','body'=>fake()->paragraph($nbSentences = 3, $variableNbSentences = true),'images'=>['pic1.jpg','pic2.jpg','pic3.jpg']]),
-            'views' => fake()->numberBetween($min = 1, $max = 1000),
             'heat' => fake()->numberBetween($min = 1, $max = 2000),
             'created_at'=>now(),
             'updated_at'=>now(),

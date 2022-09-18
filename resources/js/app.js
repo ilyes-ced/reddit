@@ -76,7 +76,10 @@ $('body').on('click', '.bookmark', function() {
 
 //open a post
 $('body').on('click', '.post_clickable', function() {
-    window.location.href = "/post/"+$(this).attr('id');
+    var classes = event.target.classList
+    if (!classes=='h-10 w-6'){
+        window.location.href = "/post/"+$(this).attr('id');
+    }
 })
 
 
@@ -285,3 +288,24 @@ $('body').on('click', '#down_vote_comment, #up_vote_comment', function() {
         }
     })
 });
+
+
+
+
+
+
+$('.hover_hide').on('mouseover', function(){
+    $('.prev_img, .next_img, .img_index').removeClass('hidden')
+})
+
+
+$('.hover_hide').on('mouseout', function(){
+    $('.prev_img, .next_img, .img_index').addClass('hidden')
+})
+
+$('.prev_img').on('click', function(){
+    const current = $(this).parent().find('.img_index').text().split(' / ')
+})
+$('.next_img').on('click', function(){
+    const current = $(this).parent().find('.img_index').text().split(' / ')
+})

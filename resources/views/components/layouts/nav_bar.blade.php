@@ -14,7 +14,7 @@
       
     </div>
 
-    <div id='add_post_input'>
+    <div id=''>
       <input id='' placeholder='search' class='p-2 h-10  rounded-lg bg-secondary border  w-full' type="text">
     </div>
 
