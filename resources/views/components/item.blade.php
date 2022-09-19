@@ -68,9 +68,9 @@
                                         <div class='img_index hidden absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($item->content, true)["images"])}}</div>
                                         @foreach (json_decode($item->content)->images as $img_src)
                                             @if ($loop->first)
-                                                <img class='main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                                                <img class='main_image mx-auto' src="../../images/{{$img_src}}" alt="My logo"/>
                                             @else
-                                                <img class='hidden main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                                                <img class='hidden mx-auto main_image' src="../../images/{{$img_src}}" alt="My logo"/>
                                             @endif
                                         @endforeach
                                         
