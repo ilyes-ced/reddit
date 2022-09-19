@@ -15,12 +15,12 @@
 
 
 
-
+<div class='m-6'></div>
 
 @foreach ($posts as $item)
-    <div class='m-8   border rounded-lg flex flex-row bg-secondary'>
-        <div class='rounded-tl-lg rounded-bl-lg bg-main  items-center w-10 text-center '>
-            <div id='{{$item->id}}' class=' h-100 w-10  pt-2 '>
+    <div class='mx-8 my-2  border rounded-lg flex flex-row bg-secondary'>
+        <div class='rounded-tl-lg rounded-bl-lg bg-main  flex items-center w-10 text-center '>
+            <div id='{{$item->id}}' class=' h-100 w-10  '>
                 @php
                     if(Auth::user()){          
                     $col_up = in_array($item->id,json_decode(Auth::user()->up_votes)) ? 'text-the_red' : '';
@@ -40,7 +40,7 @@
 
 
 
-        <div class='h-20 w-40'>
+        <div class='p-2 w-64'>
             <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
         </div>
 
@@ -71,26 +71,19 @@
                     $diff = floor((strtotime(now())-strtotime($item->created_at))/3600/24).'days ago';
                 }
                 @endphp
-
+            
                 
                 <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
             </div>
             <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
             {{--<p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>--}}
-           @if (isset(json_decode($item->content, true)["images"]))
+            @if (isset(json_decode($item->content, true)["images"]))
                 <a href="#">
                     {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
                 
                 </a>
-           @endif
+            @endif
         </div>
-
-
-
-
-
-
-
     </div>
 @endforeach
 
@@ -108,12 +101,6 @@
 
 
 
-
-
-
-@foreach ($comments as $item)
-    $item
-@endforeach
 
 
 
