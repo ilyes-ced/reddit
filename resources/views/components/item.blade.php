@@ -64,16 +64,17 @@
                                     {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
                                     <div class='hover_hide flex items-center '>
                                         <button class='prev_img hidden absolute  rounded-tr-lg rounded-br-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-r hover:border-black'><x-bi-chevron-left class='h-10 w-6' /></button>
-                                        <button class='next_img hidden absolute  right-6  rounded-tl-lg rounded-bl-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-l hover:border-black'><x-bi-chevron-right class='h-10 w-6' /></button>
-                                        <div class='img_index hidden absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($item->content, true)["images"])}}</div>
-                                        @foreach (json_decode($item->content)->images as $img_src)
-                                            @if ($loop->first)
-                                                <img class='main_image mx-auto' src="../../images/{{$img_src}}" alt="My logo"/>
-                                            @else
-                                                <img class='hidden mx-auto main_image' src="../../images/{{$img_src}}" alt="My logo"/>
-                                            @endif
-                                        @endforeach
-                                        
+                                        <button class='next_img hidden absolute  place-self-start rounded-tl-lg rounded-bl-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-l hover:border-black'><x-bi-chevron-right class='h-10 w-6' /></button>
+                                        <div class='img_index hidden  absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($item->content, true)["images"])}}</div>
+                                        <div class='images_div'>
+                                            @foreach (json_decode($item->content)->images as $img_src)
+                                                @if ($loop->first)
+                                                    <img id='ffff' class='main_image mx-auto' src="../../images/{{$img_src}}" alt="My logo"/>
+                                                @else
+                                                    <img class='hidden mx-auto main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
                                 
                                     

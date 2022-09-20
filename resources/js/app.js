@@ -298,16 +298,34 @@ $('.hover_hide').on('mouseover', function(){
     $('.prev_img, .next_img, .img_index').removeClass('hidden')
 })
 
-
 $('.hover_hide').on('mouseout', function(){
     $('.prev_img, .next_img, .img_index').addClass('hidden')
 })
 
 $('.prev_img').on('click', function(){
-    const current = $(this).parent().find('.img_index').text().split(' / ')
+    var images = $(this).parent().find('.images_div').find('img')
+    console.log(images)
+    for (var i = 0; i < images.length; i++) {
+        if(($.inArray('hidden',images[i].classList))){
+            console.log(images[i])
+            $(this).parent().find('.images_div').find('img').eq(i).addClass('hidden')
+            $(this).parent().find('.images_div').find('img').next().removeClass('hidden')
+        }
+        
+    }
 })
+
+
 $('.next_img').on('click', function(){
-    const current = $(this).parent().find('.img_index').text().split(' / ')
+    var images = $(this).parent().find('.images_div').find('img')
+    console.log(images)
+    for (var i = 0; i < images.length; i++) {
+        if(($.inArray('hidden',images[i].classList))){
+            $(this).parent().find('.images_div').find('img').eq(i).addClass('hidden')
+            $(this).parent().find('.images_div').find('img').prev().removeClass('hidden')
+        }
+        
+    }
 })
 
 
@@ -342,7 +360,69 @@ $('.next_img').on('click', function(){
 
 
 
-
+$('#general_toggle').on('click', function(){
+    $('#general_data').removeClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#posts_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').removeClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#subs_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').removeClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#comments_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').removeClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#bookmarks_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').removeClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#liked_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').removeClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#disliked_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').removeClass('hidden')
+})
 
 
 
