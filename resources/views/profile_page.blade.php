@@ -103,6 +103,8 @@
 
 <div id='posts_data'>11111111</div>
 <div id='history_data'>history</div>
+
+
 <div id='subs_data'>222222222</div>
 
 
@@ -114,10 +116,7 @@
 
 
 <div id='comments_data'>
-    @foreach ($comments as $item)
-    <x-comment  />
-        {{$item}}
-    @endforeach
+    <x-comment  :comments='$comments'/>
 </div>
 
 

@@ -26,16 +26,15 @@
 
     <div class=''>
         <div class='flex flex-row pt-2'>
-            
-            @if (isset($sub))
+            @if (isset($data->sub))
                 <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
-                <a href='/sub/{{$sub->id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$sub->name}}</a>           
+                <a href='/sub/{{$data->sub->id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$data->sub->name}}</a>           
             @else
                 <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
             @endif
             <p class='text-gray-400 mt-1 pl-1'> ● posted by </p>
-            @if (isset($use))
-                <a href='/user/{{$user->id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$user->username}}</a>
+            @if (isset($data->user))
+                <a href='/user/{{$data->user->id}}' class='text-gray-400 mt-1 pl-1 hover:underline'>{{$data->user->username}}</a>
             @else
                 <a href='' class = 'pl-2 mt-1 font-bold text-white hover:underline'>[deleted]</a>           
             @endif

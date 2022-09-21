@@ -30,7 +30,6 @@
                         
                             <div class='post_clickable' id='{{$item->id}}'>
                                 <div class='p-2 flex l flex-row w-full'>
-                                
                                     @if (isset($item->sub))
                                         <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
                                         <a href='/sub/{{$item->sub_id}}' class = 'pl-2 mt-1 font-bold text-white hover:underline'>{{$item->sub->name}}</a>           
