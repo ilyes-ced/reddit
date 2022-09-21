@@ -77,7 +77,7 @@ $('body').on('click', '.bookmark', function() {
 //open a post
 $('body').on('click', '.post_clickable', function() {
     var classes = event.target.classList
-    if (!classes=='h-10 w-6'){
+    if (!(classes=='h-10 w-6')){
         window.location.href = "/post/"+$(this).attr('id');
     }
 })
@@ -302,29 +302,29 @@ $('.hover_hide').on('mouseout', function(){
     $('.prev_img, .next_img, .img_index').addClass('hidden')
 })
 
+
+
+var image_index = 1
 $('.prev_img').on('click', function(){
-    var images = $(this).parent().find('.images_div').find('img')
-    console.log(images)
-    for (var i = 0; i < images.length; i++) {
-        if(($.inArray('hidden',images[i].classList))){
-            console.log(images[i])
-            $(this).parent().find('.images_div').find('img').eq(i).addClass('hidden')
-            $(this).parent().find('.images_div').find('img').next().removeClass('hidden')
-        }
-        
+    var num_images = $(this).parent().find('.img_index').text().split(' / ')[1]
+    var current_image = $(this).parent().find('.images_div').find('img').not('.hidden')
+    if (current_image.index()>0){
+        image_index = image_index-1
+        $(this).parent().find('.img_index').text(image_index+' / '+num_images)
+        current_image.addClass('hidden')
+        $(this).parent().find('.images_div').find('img').eq(current_image.index()-1).removeClass('hidden')
     }
 })
 
 
 $('.next_img').on('click', function(){
-    var images = $(this).parent().find('.images_div').find('img')
-    console.log(images)
-    for (var i = 0; i < images.length; i++) {
-        if(($.inArray('hidden',images[i].classList))){
-            $(this).parent().find('.images_div').find('img').eq(i).addClass('hidden')
-            $(this).parent().find('.images_div').find('img').prev().removeClass('hidden')
-        }
-        
+    var num_images = $(this).parent().find('.img_index').text().split(' / ')[1]
+    var current_image = $(this).parent().find('.images_div').find('img').not('.hidden')
+    if (current_image.index()<num_images-1){
+        image_index = image_index+1
+        $(this).parent().find('.img_index').text(image_index+' / '+num_images)
+        current_image.addClass('hidden')
+        $(this).parent().find('.images_div').find('img').eq(current_image.index()+1).removeClass('hidden')
     }
 })
 
@@ -363,6 +363,7 @@ $('.next_img').on('click', function(){
 $('#general_toggle').on('click', function(){
     $('#general_data').removeClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').addClass('hidden')
@@ -372,6 +373,17 @@ $('#general_toggle').on('click', function(){
 $('#posts_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').removeClass('hidden')
+    $('#history_data').addClass('hidden')
+    $('#subs_data').addClass('hidden')
+    $('#comments_data').addClass('hidden')
+    $('#bookmarks_data').addClass('hidden')
+    $('#liked_data').addClass('hidden')
+    $('#disliked_data').addClass('hidden')
+})
+$('#history_toggle').on('click', function(){
+    $('#general_data').addClass('hidden')
+    $('#posts_data').addClass('hidden')
+    $('#history_data').removeClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').addClass('hidden')
@@ -381,6 +393,7 @@ $('#posts_toggle').on('click', function(){
 $('#subs_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').removeClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').addClass('hidden')
@@ -390,6 +403,7 @@ $('#subs_toggle').on('click', function(){
 $('#comments_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').removeClass('hidden')
     $('#bookmarks_data').addClass('hidden')
@@ -399,6 +413,7 @@ $('#comments_toggle').on('click', function(){
 $('#bookmarks_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').removeClass('hidden')
@@ -408,6 +423,7 @@ $('#bookmarks_toggle').on('click', function(){
 $('#liked_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').addClass('hidden')
@@ -417,6 +433,7 @@ $('#liked_toggle').on('click', function(){
 $('#disliked_toggle').on('click', function(){
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
+    $('#history_data').addClass('hidden')
     $('#subs_data').addClass('hidden')
     $('#comments_data').addClass('hidden')
     $('#bookmarks_data').addClass('hidden')
