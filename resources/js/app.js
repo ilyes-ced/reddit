@@ -346,12 +346,9 @@ $('#image_file').on('change', function(){
     //$('#hidden_image').attr('src','')
 })
 */
-$("#image_file").change(function(e) {
-
+$("#image_file").on('change',function(e) {
     for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
-
         var file = e.originalEvent.srcElement.files[i];
-
         var img = document.createElement("img");
         var reader = new FileReader();
         reader.onloadend = function() {
@@ -360,7 +357,7 @@ $("#image_file").change(function(e) {
         reader.readAsDataURL(file);
         $("#comment").after(img);
     }
-});
+})
 
 
 
