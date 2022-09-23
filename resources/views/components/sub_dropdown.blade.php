@@ -2,10 +2,10 @@
     
     
     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
-{{--
+
         @if (Auth::user())
-            @if (json_decode(Auth::user()->$joined_subs))
-                @foreach (json_decode(Auth::user()->$joined_subs) as $item)
+            @if (json_decode(Auth::user()->joined_subs))
+                @foreach (json_decode(Auth::user()->joined_subs) as $item)
                     <li>
                         <a href="#" class="block py-2 px-4 hover:bg-gray-100  ">{{$item}}</a>
                     </li>
@@ -18,7 +18,7 @@
         @else
             <a href="{{URL('/login')}}">login</a>
         @endif
---}}
+
 
     </ul>
     
