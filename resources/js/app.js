@@ -295,7 +295,7 @@ $('body').on('click', '#down_vote_comment, #up_vote_comment', function() {
 
 
 $('.hover_hide').on('mouseover', function(){
-    $('.prev_img, .next_img, .img_index').removeClass('hidden')
+    $(this).find('.prev_img, .next_img, .img_index').removeClass('hidden')
 })
 
 $('.hover_hide').on('mouseout', function(){
@@ -332,12 +332,35 @@ $('.next_img').on('click', function(){
 
 
 
+$('#image_upload_sim').on('click', function(){
+    $('#image_file').trigger('click')
+})
 
 
 
+/*
+$('#image_file').on('change', function(){
+    var img = '<img id="hidden_image" class="hidden" src="+../../images/'+$('#image_file').val()+' alt="">'
+    $('#bullbull').append(img)
+    //$('#hidden_image').removeClass('hidden')
+    //$('#hidden_image').attr('src','')
+})
+*/
+$("#image_file").change(function(e) {
 
+    for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
 
+        var file = e.originalEvent.srcElement.files[i];
 
+        var img = document.createElement("img");
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            img.src = reader.result;
+        }
+        reader.readAsDataURL(file);
+        $("#comment").after(img);
+    }
+});
 
 
 

@@ -19,7 +19,7 @@
                 <button id='image_type' class='w-1/2 rounded-tr-lg   p-2 flex flex-row  justify-center'><x-bi-card-image class='h-6 w-6 mx-2' />Images</button>
             </div>
             @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="flex justify-center text-center text-the_red">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
