@@ -65,33 +65,23 @@ class Pages_controller extends Controller
     }
 
 
-/*
-    public function load_more(Request $request)
+
+
+    public function profile_page()
     {
-        if(ctype_digit($request->id)){
-            $posts = DB::table('users')
-                ->offset($request->number_of_elments)
-                ->limit(5)
-                ->get();
-                return("f");
-        }else{
-            return('errrrr');
-        }
+        $posts = Post::where('owner_id', Auth::user()->id)->get();
+        $comments = Comment::where('owner_id', Auth::user()->id)->get();
+        $up_votes = Post::whereIn('id', json_decode(Auth::user()->up_votes))->get();
+        $down_votes = Post::whereIn('id', json_decode(Auth::user()->down_votes))->get();
+        $subs = Sub::whereIn('id', json_decode(Auth::user()->joined_subs))->get();
+        $bookmarks = Post::whereIn('id', json_decode(Auth::user()->bookmarks))->get();
+        return view('profile_page')->with('posts',$posts)
+        ->with('comments',$comments)
+        ->with('up_votes',$up_votes)
+        ->with('down_votes', $down_votes)
+        ->with('subs', $subs)
+        ->with('bookmarks', $bookmarks);
     }
-*/
-
-public function profile_page()
-{
-    $posts = Post::where('owner_id', Auth::user()->id)->get();
-    $comments = Comment::where('owner_id', Auth::user()->id)->get();
-    $up_votes = Comment::where('id', json_decode(Auth::user()->up_votes))->get();
-    $down_votes = Comment::where('id', json_decode(Auth::user()->down_votes))->get();
-
-    return view('profile_page')->with('posts',$posts)
-    ->with('comments',$comments)
-    ->with('up_votes',$up_votes)
-    ->with('down_votes',$down_votes);
-}
 
 
 }

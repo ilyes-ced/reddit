@@ -59,6 +59,7 @@ Route::post('/vote_comment', [Comments_controller::class, 'vote_comment'])->midd
 
 Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('auth')->name('create_post');
 Route::post('/create_post_image', [Posts_images_controller::class, 'create'])->middleware('auth')->name('create_post_image');
+Route::post('/delete_my_post', [Posts_controller::class, 'delete'])->middleware('auth')->name('delete_my_post');
 
 
 

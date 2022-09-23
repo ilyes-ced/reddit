@@ -52,9 +52,12 @@ class Posts_controller extends Controller
         
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        
+        if(ctype_digit($request->id)){
+            Post::where('id',$request->id)->where('owner_id', Auth::user()->id)->delete();
+            return ($request->id.'/////'.gettype($request->id));
+        }
     }
     
 }

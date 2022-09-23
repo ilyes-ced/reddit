@@ -3,7 +3,6 @@ import './bootstrap';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 import Dropzone from "dropzone";
-import { startCase } from 'lodash';
 
 
 if($('.dropzone')[0]){
@@ -360,11 +359,25 @@ $("#image_file").on('change',function(e) {
 })
 
 
+$(".delete_this_post").on('click',function() {
+    var ss= $(this)
+    $.ajax({
+        url : "/delete_my_post",
+        method: 'post',
+        data: {
+            _token:$('meta[name="csrf-token"]').attr('content'),
+            id: $(this).attr('id'),
+        },
+        success : function(data) {            
+            ss.parent().parent().parent().remove()
+        }
+    })
+})
 
-
-
-
-
+$(".edit_this_post").on('click',function() {
+    alert( JSON.stringify($(this)))
+    $(this).parent().parent().parent().remove()
+})
 
 
 
