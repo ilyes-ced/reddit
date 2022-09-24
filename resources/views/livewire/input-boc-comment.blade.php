@@ -38,22 +38,12 @@
 
 
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
-
     <div class=''>
-        
         @if (count($comments)==0)
             <p class='text-[25px] text-center'>no comments yet</p>
         @endif
-
-        
             <x-comment :comments='$comments' /> 
-        
             <x-comment :comments='$add_comments' /> 
-
     </div>
-
-    
-        
-    
 </div>
 
