@@ -57,7 +57,8 @@
                                     <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
-                                <p class='pl-2 pb-2'>{{json_decode($item->content)->body}}</p>
+                                <p class='px-2 pb-2'>{{json_decode($item->content)->body}} </p>
+                                
                                 @if (isset(json_decode($item->content, true)["images"]))
                                     
                                     {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}

@@ -19,9 +19,8 @@
                 <x-bi-caret-up-fill id='up_vote'  class='{{$col_up}} w-8 h-8 p-1 hover:bg-secondary rounded-full hover:text-the_red mx-auto' />
                 <p id='heat_score'>{{$data->heat}}</p> 
                 <x-bi-caret-down-fill id='down_vote'  class='{{$col_down}}  w-8 h-8 p-1 hover:bg-secondary rounded-full  hover:text-the_red mx-auto'/>
-            
             </div>
-          </div>
+        </div>
     </div>
 
     <div class=''>
@@ -53,7 +52,7 @@
     <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
         </div>
         <p class='text-[25px] my-2'>{{json_decode($data->content)->title}}</p>
-        <p class='mb-4'>{{json_decode($data->content)->body}}</p>
+        <p class='mb-4  '>{{json_decode($data->content)->body}}</p>
     
         @if (isset(json_decode($data->content, true)["images"]))
             <a href="#">
