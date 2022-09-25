@@ -1,5 +1,5 @@
 
-    <div id='{{$item->id}}' class=" py-4  cursor-pointer "  >
+    <div id='{{$item->id}}' class=" py-4  sm:w-full md:w-2/3 lg:w-5/6 mx-auto  cursor-pointer "  >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm rounded-lg border  border-icon">
                 <div class="">
