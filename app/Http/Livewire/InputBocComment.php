@@ -34,6 +34,6 @@ class InputBocComment extends Component
 
         ]);
         $this->main_text="";
-        array_push($this->add_comments ,Comment::latest()->first());
+        //array_push($this->add_comments ,Comment::latest()->first());
     }
 }

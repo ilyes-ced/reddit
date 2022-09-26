@@ -2,16 +2,8 @@ import './bootstrap';
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-import Dropzone from "dropzone";
 
 
-if($('.dropzone')[0]){
-var myDropzone = new Dropzone(".dropzone")
-myDropzone.options.imageUpload = {
-            maxFilesize         :       2,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif"
-};
-}
 
 
 
@@ -477,3 +469,53 @@ $('#disliked_toggle').on('click', function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var current_index = 1
+$('body').on('click', '.collective_images_trigger', function(){
+    current_index ++//parseInt($(this).attr("id").split('_')[1])
+    alert(current_index)
+    $(this).parent().parent().prepend('<div><div id="trigget_'+current_index+'" class="collective_images_trigger   h-[170px] border border-2 border-dashed rounded flex items-center justify-center "> <p>+</p></div><input class="hidden collective_images" type="file" name="input_image_'+current_index+'" id="input_image_'+current_index+'"></div>')
+    $('#input_image_'+current_index).trigger('click')
+})
+
+
+$('body').on('change', ".collective_images", function(e) {
+    for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var img = document.createElement("img");
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            img.src = reader.result;
+        }
+        reader.readAsDataURL(file);
+        alert($(this).attr('id'))
+        $(this).prev().html(img);
+    }
+})

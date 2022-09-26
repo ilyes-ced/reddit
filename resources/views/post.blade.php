@@ -2,7 +2,7 @@
 <x-layouts.app>
 
 <div class="mx-8 mt-4 bg-secondary rounded-lg  border  border-icon">
-   <div class=' flex flex-row'> 
+   <div class=' flex flex-row '> 
 
     <div class=''>  
         <div  class=' '>
@@ -55,11 +55,20 @@
         <p class='mb-4  '>{{json_decode($data->content)->body}}</p>
     
         @if (isset(json_decode($data->content, true)["images"]))
-            <a href="#">
-                {{--<img src="../../images/{{json_decode($item->images)[0]}}" alt="My logo"/> --}}
-                <img src="../../images/{{json_decode($data->content)->images[0]}}" alt="My logo"/>
-            
-            </a>
+            <div class='hover_hide flex items-center '>
+                <button class='prev_img hidden absolute rounded-tr-lg rounded-br-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-r hover:border-black'><x-bi-chevron-left class='h-10 w-6' /></button>
+                <button class='next_img hidden absolute right-0 rounded-tl-lg rounded-bl-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-l hover:border-black'><x-bi-chevron-right class='h-10 w-6' /></button>
+                <div class='img_index hidden  absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($data->content, true)["images"])}}</div>
+                <div class='images_div mx-auto '>
+                    @foreach (json_decode($data->content)->images as $img_src)
+                        @if ($loop->first)
+                            <img id='ffff' class='main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                        @else
+                            <img class='hidden main_image' src="../../images/{{$img_src}}" alt="My logo"/>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
         @endif
     </div>
 
@@ -70,7 +79,7 @@
         $book = '';
     }
     @endphp
-    
+
    </div>
    <div class='px-10 py-2 flex flex-row w-full '>
     <a href='' class='px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
@@ -98,7 +107,59 @@
 </div>
 @endif
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <livewire:input-boc-comment :post_id="$data->id"/>
+
+
+
+
+
+
+
+
+
+
+
+{{--
+<x-input_box_comment :post_id="$data->id"/>
+
+
+<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
+    <div class='' id='add_coments_here'>
+        @if (count($comments)==0)
+            <p id='no_comments' class='text-[25px] text-center'>no comments yet</p>
+        @endif
+        <x-comment :comments='$data->comment' /> 
+    </div>
+</div>
+--}}
+
+
+
+
+
+
+{{--
+<livewire:input-boc-comment :post_id="$data->id"/>
+--}}
+
+
 {{--
 <div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
 

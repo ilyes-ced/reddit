@@ -21,7 +21,6 @@ class CommentFactory extends Factory
             'owner_id' => fake()->randomDigitNot(0),
             'post_id' => fake()->randomDigitNot(0),
             'parent_comment_id' => 0,
-            'level' => fake()->numberBetween($min = 1, $max = 10),
             'heat' => fake()->numberBetween($min = 1, $max = 2000),
             'created_at'=>now(),
             'updated_at'=>now(),

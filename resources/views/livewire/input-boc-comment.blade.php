@@ -42,8 +42,9 @@
         @if (count($comments)==0)
             <p class='text-[25px] text-center'>no comments yet</p>
         @endif
-            <x-comment :comments='$comments' /> 
-            <x-comment :comments='$add_comments' /> 
+        <x-comment :comments='$comments' /> 
+
+        {{--<livewire:new-comment />--}}
     </div>
 </div>
 

@@ -15,10 +15,15 @@
 --}}
 
 <input  class='mb-4 p-2 rounded-lg bg-main border  w-full' name='title'  placeholder='title' type="text">
-<div class="bg-secondary container h-[235px]  rounded-xl border border-dashed ">
-    <form id='input_image_form'  action="{{ URL('create_post_image') }}" method="post" enctype="multipart/form-data" id="image-upload" class="dropzone w-full h-full  flex items-center justify-center cursor-pointer">
+<div class="bg-secondary container w-full  rounded-xl border border-dashed ">
+    <form id='input_image_form'  action="{{ URL('create_post_image') }}" method="post" enctype="multipart/form-data" class=" w-full h-full grid grid-cols-4 gap-4 p-4 cursor-pointer">
         @csrf
-        
+        <div>
+            <div id='trigget_1' class="collective_images_trigger   h-[170px] border border-2 border-dashed rounded flex items-center justify-center "> 
+            <p>+</p>
+            </div>
+            <input class='hidden collective_images' type="file" name="input_image_1" id="input_image_1">
+        </div>
     </form>
 
 

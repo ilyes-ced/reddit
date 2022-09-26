@@ -11,12 +11,16 @@ class Comments_controller extends Controller
 {
     public function create_comment(Request $request)
     {
+        
 
-        //dd($request->all());
+
         $validator = $request->validate([
             'main_text' => 'required|string|min:0|max:500',
             'post_id' => 'required|integer|min:1|exists:posts,id'
         ]);
+        
+        
+
 
         $post_created = Comment::create([
             'content' => $request->main_text,
@@ -26,8 +30,10 @@ class Comments_controller extends Controller
 
         ]);
 
+        return('succ');
+
         //tempo
-        return redirect()->back();
+        //return redirect()->back();
     }
 
 
