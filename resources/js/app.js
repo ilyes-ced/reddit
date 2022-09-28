@@ -137,14 +137,17 @@ $("#image_type").on("click", function() {
 
 
 $('#main_select').on('change', function(){
-    $('#submit_button').removeClass('bg-main')
-    $('#submit_button').removeClass('hover:bg-gray-800')
-    $('#submit_button').addClass('bg-the_red')
-    $('#submit_button').addClass('hover:bg-red-800')
-    $('#submit_button').prop('disabled',false)
+    $('#submit_button ,#submit_button_images_input').removeClass('bg-main')
+    $('#submit_button ,#submit_button_images_input').removeClass('hover:bg-gray-800')
+    $('#submit_button ,#submit_button_images_input').addClass('bg-the_red')
+    $('#submit_button ,#submit_button_images_input').addClass('hover:bg-red-800')
+    $('#submit_button ,#submit_button_images_input').prop('disabled',false)
+
+
+
+
     $('#selected_sub_input').val($('#main_select').val())
     $('#selected_sub_input_image').val($('#main_select').val())
-
 })
 
 
@@ -275,7 +278,7 @@ $('body').on('click', '#down_vote_comment, #up_vote_comment', function() {
             id: $(this).parent().attr('id'),
         },
         success : function(data) {            
-            alert(JSON.stringify(data))
+            //alert(JSON.stringify(data))
         }
     })
 });
@@ -476,6 +479,9 @@ $('#disliked_toggle').on('click', function(){
 
 
 
+$('.to_be_replied_to').on('click', function(){
+    $(this).parent().parent().append($('#input_comment').clone())
+})
 
 
 
@@ -496,12 +502,9 @@ $('#disliked_toggle').on('click', function(){
 
 
 
-
-var current_index = 1
+var current_index = 0
 $('body').on('click', '.collective_images_trigger', function(){
-    current_index ++//parseInt($(this).attr("id").split('_')[1])
-    alert(current_index)
-    $(this).parent().parent().prepend('<div><div id="trigget_'+current_index+'" class="collective_images_trigger   h-[170px] border border-2 border-dashed rounded flex items-center justify-center "> <p>+</p></div><input class="hidden collective_images" type="file" name="input_image_'+current_index+'" id="input_image_'+current_index+'"></div>')
+    current_index ++
     $('#input_image_'+current_index).trigger('click')
 })
 
@@ -514,8 +517,8 @@ $('body').on('change', ".collective_images", function(e) {
         reader.onloadend = function() {
             img.src = reader.result;
         }
-        reader.readAsDataURL(file);
-        alert($(this).attr('id'))
+        reader.readAsDataURL(file);   
+        $(this).parent().parent().append('<div><div id="trigget_'+(current_index+1)+'" class="collective_images_trigger   h-[170px] border border-2 border-dashed rounded flex items-center justify-center "> <p>+</p></div><input class="hidden collective_images" type="file" name="input_image_'+(current_index+1)+'" id="input_image_'+(current_index+1)+'"></div>')
         $(this).prev().html(img);
     }
 })

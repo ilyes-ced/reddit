@@ -1,9 +1,10 @@
+@foreach ($coms as $item)
 <div class='bg-main rounded-sm m-2 flex flex-row'>
     <div class=''>
         @php
             if(Auth::user()){          
-            $col_up = in_array($item->id,json_decode(Auth::user()->up_votes_comments)) ? 'text-the_red' : '';
-            $col_down = in_array($item->id,json_decode(Auth::user()->down_votes_comments)) ? 'text-the_red' : ''; 
+            $col_up = in_array($item->id,json_decode(Auth::user()->up_votes)) ? 'text-the_red' : '';
+            $col_down = in_array($item->id,json_decode(Auth::user()->down_votes)) ? 'text-the_red' : ''; 
             }else{
                 $col_up = '';
                 $col_down = '';
@@ -46,7 +47,7 @@
             {{$item->content}}      
         </div>
         <div class='px-4'>
-            <a  class='to_be_replied_to cursor-pointer px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
+            <a class='cursor-pointer px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                 <x-bi-chat-square-text class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
                 reply
             </a>
@@ -59,10 +60,12 @@
 <div  class='flex flex_row divide-x ml-3'>
     <div class=''></div>
     <div class='ml-4 w-full'>
-       <x-comment_sub :coms='$item->replies' /> 
+       <x-comment_sub :item='$item->replies' /> 
     </div>
 </div>  
 
 
 
 
+
+@endforeach

@@ -2,7 +2,7 @@
 
     <div>
         <select required id='main_select' class="w-4/12 p-2 bg-secondary rounded-lg border mx-8 mt-8">
-            <option selected disabled>Choose a country</option>
+            <option selected disabled>Choose a sub to post in</option>
             @if (Auth::user())
                 @foreach ($subs as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>

@@ -52,7 +52,10 @@
     <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
         </div>
         <p class='text-[25px] my-2'>{{json_decode($data->content)->title}}</p>
-        <p class='mb-4  '>{{json_decode($data->content)->body}}</p>
+
+        @if (isset(json_decode($data->content, true)["body"]))
+            <p class='mb-4  '>{{json_decode($data->content)->body}}</p>
+        @endif
     
         @if (isset(json_decode($data->content, true)["images"]))
             <div class='hover_hide flex items-center '>

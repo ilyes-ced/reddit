@@ -20,7 +20,7 @@ class Posts_controller extends Controller
             ]);
             $file= $request->file('image_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('Images'), $filename);
+            $file-> move(public_path('images'), $filename);
             $post_created = Post::create([
                 'owner_id' => Auth::user()->id,
                 'sub_id' => $request->selected_sub,

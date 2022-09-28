@@ -1,5 +1,4 @@
-
-<form class='m-8' wire:submit.prevent="create_comment" method="POST" id='input_comment'>
+<form class='m-8' wire:submit.prevent="create_comment" method="POST" id='input'>
     @csrf
     <div class=" bg-gray-50 rounded-lg border border-gray-200 ">
         <div class="py-2 px-4 bg-main rounded-t-lg  ">
@@ -34,18 +33,3 @@
         </div>
     </div>
 </form>
-
-
-<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
-    <div class=''>
-        @if (count($comments)==0)
-            <p class='text-[25px] text-center'>no comments yet</p>
-        @else
-            @foreach ($comments as $item)
-                <x-comment :item="$item" />
-            @endforeach
-        @endif
-        {{--<livewire:new-comment />--}}
-    </div>
-</div>
-

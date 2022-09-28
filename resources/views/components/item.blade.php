@@ -1,5 +1,5 @@
 
-    <div id='{{$item->id}}' class=" py-4  sm:w-full md:w-2/3 lg:w-5/6 mx-auto  cursor-pointer "  >
+    <div id='{{$item->id}}' class=" py-4  sm:w-full md:w-5/6 lg:w-3/5 mx-auto  cursor-pointer "  >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm rounded-lg border  border-icon">
                 <div class="">
@@ -57,7 +57,12 @@
                                     <p class='text-gray-400 mt-1 pl-1'>{{$diff}}</p>
                                 </div>
                                 <p class='text-[25px] pl-2 pb-2'>{{json_decode($item->content)->title}}</p>
-                                <p class='px-2 pb-2'>{{json_decode($item->content)->body}} </p>
+
+                                @if (isset(json_decode($item->content, true)["body"]))
+                                    <p class='px-2 pb-2'>{{json_decode($item->content)->body}} </p>
+                                @endif
+
+                                
                                 
                                 @if (isset(json_decode($item->content, true)["images"]))
                                     
