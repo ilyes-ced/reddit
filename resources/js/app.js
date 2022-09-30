@@ -479,8 +479,22 @@ $('#disliked_toggle').on('click', function(){
 
 
 
-$('.to_be_replied_to').on('click', function(){
-    $(this).parent().parent().append($('#input_comment').clone())
+$('.to_be_replied_to').on('click', function(){/*
+    if(!$(this).parent().parent().find('#input_comment').length){
+        $(this).parent().parent().append($('#input_comment').clone().attr('class','comment_input_'+$(this).parent().attr('id')).removeClass('hidden'))
+        //attr('id','comment_input_'+$(this).parent().attr('id')).
+        $('.change_me_to_post_id').val(window.location.href.split('/')[window.location.href.split('/').length-1])
+        $('<input>').attr({
+            type : 'hidden',
+            name : 'parent_comment',
+            value : $(this).parent().attr('id'),
+        }).appendTo($('.comment_input_'+$(this).parent().attr('id')))
+    }*/
+    
+    $('#to_be_moved').insertAfter($(this).parent().parent())
+    //$('#to_be_moved').removeClass('hidden')
+    window.livewire.emit('change-p')
+    $('#parent_comment_id_live').val($(this).parent().attr('id'))
 })
 
 

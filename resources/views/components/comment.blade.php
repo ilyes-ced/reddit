@@ -1,3 +1,5 @@
+@foreach ($comments as $item)
+    
 <div class='bg-main rounded-sm m-2 flex flex-row'>
     <div class=''>
         @php
@@ -45,7 +47,7 @@
             <div class='border mx-4'></div>
             {{$item->content}}      
         </div>
-        <div class='px-4'>
+        <div class='px-4' id='{{$item->id}}'>
             <a  class='to_be_replied_to cursor-pointer px-2 flex flex-row hover:bg-main hover:text-the_red h-full p-2'>
                 <x-bi-chat-square-text class='w-5 h-5 hover:text-the_red mt-1 mr-2' />
                 reply
@@ -59,10 +61,11 @@
 <div  class='flex flex_row divide-x ml-3'>
     <div class=''></div>
     <div class='ml-4 w-full'>
-       <x-comment_sub :coms='$item->replies' /> 
+       <x-comment :comments='$item->replies' /> 
     </div>
 </div>  
 
 
+@endforeach
 
 

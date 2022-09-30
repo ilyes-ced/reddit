@@ -114,19 +114,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <livewire:input-boc-comment :post_id="$data->id"/>
 
 
@@ -135,66 +122,5 @@
 
 
 
-
-
-
-
-{{--
-<x-input_box_comment :post_id="$data->id"/>
-
-
-<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
-    <div class='' id='add_coments_here'>
-        @if (count($comments)==0)
-            <p id='no_comments' class='text-[25px] text-center'>no comments yet</p>
-        @endif
-        <x-comment :comments='$data->comment' /> 
-    </div>
-</div>
---}}
-
-
-
-
-
-
-{{--
-<livewire:input-boc-comment :post_id="$data->id"/>
---}}
-
-
-{{--
-<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
-
-    <div class=''>
-        
-        @if (count($comments)==0)
-            <p class='text-[25px] text-center'>no comments yet</p>
-        @endif
-
-            <x-comment :comments='$comments' /> 
-        
-     
-    </div>
-</div>
---}}
 </x-layouts.app>
 
-
-
-{{--
-        @foreach ($comments as $item)
-            <x-comment :item='$item' />   
-                @foreach ($sub_comments as $sub_item)
-                    @if ($sub_item->parent_comment_id==$item->id)
-                        <div  class='flex flex_row divide-x ml-3'>
-                            <div class=''></div>
-                            <div class='ml-4 w-full'>
-                                <x-comment :item='$sub_item' />
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-        @endforeach
-        
-    --}}

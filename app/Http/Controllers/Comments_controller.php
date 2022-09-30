@@ -15,25 +15,37 @@ class Comments_controller extends Controller
     {
         
 
-
-        $validator = $request->validate([
-            'main_text' => 'required|string|min:0|max:500',
-            'post_id' => 'required|integer|min:1|exists:posts,id'
-        ]);
         
-        
+        if(isset($request->parent_comment)){
+            $validator = $request->validate([
+                'main_text' => 'required|string|min:0|max:500',
+                'post_id' => 'required|integer|min:1|exists:posts,id',
+                'parent_comment' => 'required|integer|min:1|exists:comments,id'
+            ]);
 
+            $post_created = Comment::create([
+                'content' => $request->main_text,
+                'owner_id' => Auth::user()->id,
+                'post_id' => $request->post_id,
+                'parent_comment_id' => $request->parent_comment,
 
-        $post_created = Comment::create([
-            'content' => $request->main_text,
-            'owner_id' => Auth::user()->id,
-            'post_id' => $request->post_id,
-            'parent_comment_id' => 0,
-
-        ]);
-
+            ]);
         return('succ');
+        }else{
+            $validator = $request->validate([
+                'main_text' => 'required|string|min:0|max:500',
+                'post_id' => 'required|integer|min:1|exists:posts,id'
+            ]);
 
+            $post_created = Comment::create([
+                'content' => $request->main_text,
+                'owner_id' => Auth::user()->id,
+                'post_id' => $request->post_id,
+                'parent_comment_id' => 0,
+
+            ]);
+        return('succ');
+        }
         //tempo
         //return redirect()->back();
     }
