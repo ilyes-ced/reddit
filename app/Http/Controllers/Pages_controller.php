@@ -14,6 +14,7 @@ class Pages_controller extends Controller
 {
     public function home_page()
     {
+        
         $post = Post::orderByDesc('created_at')->take(5)->get();
         return view('home_page')->with('post',$post);
     }
