@@ -382,13 +382,24 @@ $(".edit_this_post").on('click',function() {
 
 
 
-
+function reset(){
+    $('#general_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#posts_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#history_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#subs_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#comments_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#bookmarks_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#liked_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+    $('#disliked_toggle').removeClass('rounded-lg border bg-secondary text-the_red')
+}
 
 
 
 
 
 $('#general_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').removeClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')
@@ -399,6 +410,8 @@ $('#general_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#posts_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').removeClass('hidden')
     $('#history_data').addClass('hidden')
@@ -409,6 +422,8 @@ $('#posts_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#history_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').removeClass('hidden')
@@ -419,6 +434,8 @@ $('#history_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#subs_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')
@@ -429,6 +446,8 @@ $('#subs_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#comments_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')
@@ -439,6 +458,8 @@ $('#comments_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#bookmarks_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')
@@ -449,6 +470,8 @@ $('#bookmarks_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#liked_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')
@@ -459,6 +482,8 @@ $('#liked_toggle').on('click', function(){
     $('#disliked_data').addClass('hidden')
 })
 $('#disliked_toggle').on('click', function(){
+    reset()
+    $(this).addClass('rounded-lg border bg-secondary text-the_red')
     $('#general_data').addClass('hidden')
     $('#posts_data').addClass('hidden')
     $('#history_data').addClass('hidden')

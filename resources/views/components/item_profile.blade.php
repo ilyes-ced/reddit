@@ -21,7 +21,7 @@
         <div class='flex flex-row'>
             @if (isset(json_decode($item->content, true)["images"]))
                 <div class='p-2 w-64'>
-                    <img src="../../images/{{json_decode($item->content)->images[0]}}" alt="My logo"/>
+                    <img src="images/{{ json_decode(json_decode($item->content)->images)[0] }}" alt="My ff"/>
                 </div>
             @endif
 
