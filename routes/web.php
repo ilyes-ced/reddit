@@ -56,6 +56,7 @@ Route::post('/join_leave_sub', [Users_controller::class, 'join_leave']);
 Route::post('/join_leave_sub_auth', [Users_controller::class, 'join_leave_auth'])->middleware('auth');
 
 Route::post('/create_comment', [Comments_controller::class, 'create_comment'])->middleware('auth')->name('create_comment');
+Route::post('/reply_comment', [Comments_controller::class, 'reply_comment'])->middleware('auth')->name('reply_comment');
 Route::post('/vote_comment', [Comments_controller::class, 'vote_comment'])->middleware('auth')->name('vote_comment');
 
 

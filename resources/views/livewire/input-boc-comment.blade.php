@@ -1,5 +1,5 @@
-<div>
-<form class='m-8' wire:submit.prevent="create_comment" method="POST" wire:key='{{time()}}'>
+<div class="sm:w-full md:w-5/6 lg:w-3/5 mx-auto ">
+<form class='' wire:submit.prevent="create_comment" method="POST" wire:key='{{time()}}'>
     @csrf
     <div class=" bg-gray-50 rounded-lg border border-gray-200 ">
         <div class="py-2 px-4 bg-main rounded-t-lg  ">
@@ -33,12 +33,12 @@
         </div>
     </div>
 </form>
-<form class='m-8 hidden' {{--wire:submit.prevent="create_sub_comment"--}} id='to_be_moved' method="POST">
-    {{--@csrf--}}
+<form class=' hidden' {{-- action="{{route('reply_comment')}}" --}}{{--wire:submit.prevent="create_sub_comment"--}} id='to_be_moved' method="POST">
+    @csrf
     <div class=" bg-gray-50 rounded-lg border border-gray-200 ">
         <div class="py-2 px-4 bg-main rounded-t-lg  ">
             <label for="comment" class="sr-only">Your comment</label>
-            <textarea {{--wire:model="main_text_sub"--}} name='main_text_sub' rows="6" class="bg-main px-0 w-full text-sm text-the_text  border-0  focus:ring-0 " placeholder="Write a comment..." required=""></textarea>
+            <textarea {{--wire:model="main_text_sub"--}} name='main_text_sub' rows="6" class="bg-main px-0 w-full text-sm text-the_text  border-0  focus:ring-0 " placeholder='Not working yet' required=""></textarea>
         </div>
         <div class=" rounded-b-lg flex justify-between items-center py-2 px-3 border-t d bg-secondary ">
             <button  id='submit_comment' type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-main border rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-gray-800">
@@ -66,10 +66,11 @@
         </div>
     </div>
 </form>
+{{--
+    <x-comment_input />
+--}}
 
-<x-comment_input />
-
-<div class="m-8 p-4  bg-secondary rounded-lg  border  border-icon">
+<div class="my-8 p-4  bg-secondary rounded-lg  border  border-icon">
     <div class=''>
         @if (count($comments)==0)
             <p class='text-[25px] text-center'>no comments yet</p>

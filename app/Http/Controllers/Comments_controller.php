@@ -96,6 +96,9 @@ class Comments_controller extends Controller
         }
     
     }
-
+    
+    public function reply_comment(Request $request){
+        dd('fffffff');
+    }
 
 }

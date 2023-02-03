@@ -26,7 +26,7 @@ class Posts_images_controller extends Controller
         $post_created = Post::create([
             'owner_id' => Auth::user()->id,
             'sub_id' => $request->selected_sub,
-            'content' => json_encode(['title'=>$request->title,'images'=>$image])
+            'content' => json_encode(['title'=>$request->title,'images'=>json_encode($image)])
         ]);
         return redirect()->back(); 
     }

@@ -1,7 +1,7 @@
 
 <x-layouts.app>
 
-<div class="mx-8 mt-4 bg-secondary rounded-lg  border  border-icon">
+<div class=" mt-4 bg-secondary rounded-lg  border  border-icon   sm:w-full md:w-5/6 lg:w-3/5 mx-auto ">
    <div class=' flex flex-row '> 
 
     <div class=''>  
@@ -58,12 +58,12 @@
         @endif
     
         @if (isset(json_decode($data->content, true)["images"]))
-            <div class='hover_hide flex items-center '>
+            <div class='hover_hide flex items-center relative'>
                 <button class='prev_img hidden absolute rounded-tr-lg rounded-br-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-r hover:border-black'><x-bi-chevron-left class='h-10 w-6' /></button>
                 <button class='next_img hidden absolute right-0 rounded-tl-lg rounded-bl-lg h-10 bg-[rgb(0,0,0,0.5)] hover:border-l hover:border-black'><x-bi-chevron-right class='h-10 w-6' /></button>
-                <div class='img_index hidden  absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode($data->content, true)["images"])}}</div>
+                <div class='img_index hidden  absolute bg-[rgb(0,0,0,0.5)] p-2.5 rounded-lg left-1/2 '> 1 / {{count(json_decode(json_decode($data->content, true)["images"]))}}</div>
                 <div class='images_div mx-auto '>
-                    @foreach (json_decode($data->content)->images as $img_src)
+                    @foreach (json_decode(json_decode($data->content)->images) as $img_src)
                         @if ($loop->first)
                             <img id='ffff' class='main_image' src="../../images/{{$img_src}}" alt="My logo"/>
                         @else
@@ -99,7 +99,7 @@
     </a>
     </div>
 </div>
-<div class='m-8'>
+<div class='m-8  sm:w-full md:w-5/6 lg:w-3/5 mx-auto '>
 @if ($errors->any())
 <div class="flex justify-center">
     <ul>
@@ -114,7 +114,7 @@
 
 
 
-<livewire:input-boc-comment :post_id="$data->id"/>
+<livewire:input-boc-comment class='' :post_id="$data->id"/>
 
 
 

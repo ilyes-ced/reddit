@@ -491,8 +491,8 @@ $('.to_be_replied_to').on('click', function(){/*
         }).appendTo($('.comment_input_'+$(this).parent().attr('id')))
     }*/
     
-    $('#to_be_moved').insertAfter($(this).parent().parent())
-    //$('#to_be_moved').removeClass('hidden')
+    $('#to_be_moved').insertAfter($(this).parent().parent().parent())
+    $('#to_be_moved').removeClass('hidden')
     window.livewire.emit('change-p')
     $('#parent_comment_id_live').val($(this).parent().attr('id'))
 })
@@ -532,7 +532,7 @@ $('body').on('change', ".collective_images", function(e) {
             img.src = reader.result;
         }
         reader.readAsDataURL(file);   
-        $(this).parent().parent().append('<div><div id="trigget_'+(current_index+1)+'" class="collective_images_trigger   h-[170px] border border-2 border-dashed rounded flex items-center justify-center "> <p>+</p></div><input class="hidden collective_images" type="file" name="input_image_'+(current_index+1)+'" id="input_image_'+(current_index+1)+'"></div>')
+        $(this).parent().parent().append('<div><div id="trigget_'+(current_index+1)+'" class="collective_images_trigger   h-[170px]  border-2 border-dashed rounded flex items-center justify-center "> <p>+</p></div><input class="hidden collective_images" type="file" name="input_image_'+(current_index+1)+'" id="input_image_'+(current_index+1)+'"></div>')
         $(this).prev().html(img);
     }
 })

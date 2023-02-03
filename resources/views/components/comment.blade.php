@@ -19,7 +19,7 @@
     </div>
     <div>
         <div class='px-2 pt-2 flex  flex-row w-full'>
-            <img class='h-8 w-8 bg-black rounded-full' src="../../images/pic1.jpg" alt="">  
+            <img class='h-8 w-8 bg-black rounded-full' src="/images/{{$item->user->profile_image}}" alt="error">  
             @if ($item->user->username)
                 <a href='/user/{{$item->owner_id}}' class='text-text_color mt-1 pl-1 hover:underline'> {{$item->user->username}} </a>
             @else
