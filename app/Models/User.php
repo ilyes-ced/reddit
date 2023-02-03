@@ -28,7 +28,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    protected $attributes = array(
+        'bookmarks' => '[]',
+        'joined_subs' => '[]',
+        'comments' => '[]',
+        'my_posts' => '[]',
+        'my_subs' => '[]',
+        'up_votes' => '[]',
+        'down_votes' => '[]',
+        'up_votes_comments' => '[]',
+        'down_votes_comments' => '[]'
+    );
 
     public function subs()
     {

@@ -82,6 +82,17 @@ class Pages_controller extends Controller
         ->with('bookmarks', $bookmarks);
     }
 
+    
+
+
+
+
+
+
+    public function create_sub_page(){
+        return view('create_sub_page');
+    }
+
 
 }
 

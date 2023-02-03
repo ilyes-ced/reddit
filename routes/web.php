@@ -9,6 +9,7 @@ use App\Http\Controllers\Posts_images_controller;
 use App\Http\Controllers\Users_controller;
 use App\Http\Controllers\Subs_controller;
 use App\Http\Controllers\Comments_controller;
+use App\Http\Controllers\Search_controller;
 
 
 
@@ -33,6 +34,7 @@ Route::get('/post/{id}', [Pages_controller::class, 'post_page']);
 Route::get('/user/{id}', [Pages_controller::class, 'user_page']);
 Route::get('/add_post', [Pages_controller::class, 'add_post'])->middleware('auth');
 Route::get('/profile_page', [Pages_controller::class, 'profile_page'])->middleware('auth');
+Route::get('/create_sub_page', [Pages_controller::class, 'create_sub_page'])->name('create_sub_page');
 
 //Route::post('/load_more', [Pages_controller::class, 'load_more']);
 
@@ -61,6 +63,10 @@ Route::post('/create_post', [Posts_controller::class, 'create'])->middleware('au
 Route::post('/create_post_image', [Posts_images_controller::class, 'create'])->middleware('auth')->name('create_post_image');
 Route::post('/delete_my_post', [Posts_controller::class, 'delete'])->middleware('auth')->name('delete_my_post');
 
+
+
+
+Route::get('/search', [Search_controller::class, 'index'])->name('search');
 
 
 

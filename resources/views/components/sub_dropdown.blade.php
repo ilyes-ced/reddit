@@ -21,8 +21,13 @@
 
 
     </ul>
+
+
+    <form method='get' action="{{route('create_sub_page')}}" class="py-1 w-full" >
+        <button  class=" text-left block py-2 px-4 text-sm  hover:bg-gray-100 w-full">Create Sub</button>
+    </form>
     
     <div class="py-1">
-        <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 ">Sign out</a>
+        <a href="#" class="block py-2 px-4 text-sm  hover:bg-gray-100 ">Sign out</a>
     </div>
 </div>

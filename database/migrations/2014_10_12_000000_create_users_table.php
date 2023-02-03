@@ -22,16 +22,16 @@ return new class extends Migration
             $table->string('profile_image')->default('pic5.jpg');
 
             $table->integer('heat')->default(0);            
-            $table->json('bookmarks')->default('[]');
-            $table->json('joined_subs')->default('[]');
-            $table->json('comments')->default('[]');
-            $table->json('my_posts')->default('[]');
-            $table->json('my_subs')->default('[]');
+            $table->json('bookmarks');
+            $table->json('joined_subs');
+            $table->json('comments');
+            $table->json('my_posts');
+            $table->json('my_subs');
             
-            $table->json('up_votes')->default('[]');
-            $table->json('down_votes')->default('[]');
-            $table->json('up_votes_comments')->default('[]');
-            $table->json('down_votes_comments')->default('[]');
+            $table->json('up_votes');
+            $table->json('down_votes');
+            $table->json('up_votes_comments');
+            $table->json('down_votes_comments');
 
             $table->rememberToken();
             $table->timestamps();

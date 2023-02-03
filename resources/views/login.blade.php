@@ -39,7 +39,15 @@
           <hr class="w-96 h-0.5 bg-icons " />
         </div>
       
-
+        @if ($errors->any())
+          <div class="flex justify-center">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li class='text-the_red'>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
         <div>
           <form action="{{route('login')}}" method="post" class='flex flex-col'>
             @csrf
@@ -57,15 +65,7 @@
             </div>
             
             <button class='w-full bg-the_red rounded-lg h-10 mb-4 hover:bg-main hover:border hover:border-the_red'>submit</button>
-            @if ($errors->any())
-<div class="flex justify-center">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li class='text-the_red'>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
           </form>
           dont you have accoutn?  <a href="{{URL('/register')}}" class='underline text-the_red'>sign up here</a>
         </div>

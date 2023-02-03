@@ -15,7 +15,9 @@
     </div>
 
     <div id=''>
-      <input id='' placeholder='search' class='p-2 h-10  rounded-lg bg-secondary border  w-full' type="text">
+      <form action="{{route('search')}}" method='get'>
+        <input id='' placeholder='search' class='p-2 h-10  rounded-lg bg-secondary border  w-full' type="text">
+      </form>
     </div>
 
   </div>
