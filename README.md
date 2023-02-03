@@ -28,17 +28,24 @@ first project so a lot of glitches and bad practices
 
 ## Installation
 
-install packages
+1. install packages
 ```
 npm install
 composer install
 ```
 
-create .env from .env.example and change info of mysql database
+2. create .env from .env.example and change info of mysql database
 
-migrate and seed
+3. migrate and seed
 ```
-php artisan migrate && php artisan db:seed
+php artisan migrate
+php artisan db:seed
+```
+
+4. to run 
+```
+npm run dev
+php artisan serve
 ```
 
 created accounts
@@ -49,9 +56,3 @@ alex@gmail.com  |  password
 james@gmail.com  |  password
 tomas@gmail.com  |  password
 
-
-to run 
-```
-npm run dev
-php artisan serve
-```
